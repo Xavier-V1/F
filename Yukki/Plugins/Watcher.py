@@ -38,5 +38,5 @@ async def chat_watcher_func(_, message):
         except Exception:
             return
         await message.reply_text(
-            f"{checking} is globally banned by Sudo Users and has been kicked out of the chat.\n\n**Possible Reason:** Potential Spammer and Abuser."
+            f"{checking} تم حظره عالميًا من قِبل المطورين وتم طرده من الدردشة.\n\nسبب محتمل : مرسل بريد عشوائي."
         )
