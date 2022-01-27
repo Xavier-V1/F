@@ -9,10 +9,10 @@ from pyrogram.types import Message
 from Yukki import BOT_USERNAME, MUSIC_BOT_NAME, app, boottime
 from Yukki.Utilities.ping import get_readable_time
 
-__MODULE__ = "Ping"
+__MODULE__ = "البينج"
 __HELP__ = """
 
-/ping - Check if Bot is alive or not.
+🍒︙ /ping - معرفه ائا كان البوت يعمل او لا.
 """
 
 
@@ -22,10 +22,10 @@ async def bot_sys_stats():
     mem = psutil.virtual_memory().percent
     disk = psutil.disk_usage("/").percent
     stats = f"""
-Uptime: {get_readable_time((bot_uptime))}
-CPU: {cpu}%
-RAM: {mem}%
-Disk: {disk}%"""
+🍒︙وقت البدء {get_readable_time((bot_uptime))}
+🍒︙المعالج {cpu}%
+🍒︙الرام {mem}%
+🍒︙التخزين {disk}%"""
     return stats
 
 
@@ -34,11 +34,11 @@ async def ping(_, message):
     start = datetime.now()
     response = await message.reply_photo(
         photo="Utils/Query.jpg",
-        caption=">> Pong!",
+        caption=">> بونج",
     )
     uptime = await bot_sys_stats()
     end = datetime.now()
     resp = (end - start).microseconds / 1000
     await response.edit_text(
-        f"**Pong!**\n`⚡{resp} ms`\n\n<b><u>{MUSIC_BOT_NAME} System Stats:</u></b>{uptime}"
+        f"**🍒︙بونج**\n`🍒︙{resp} ⚡`\n\n<b><u>🍒︙ بوت{MUSIC_BOT_NAME} حاله نظام</u></b>{uptime}"
     )
