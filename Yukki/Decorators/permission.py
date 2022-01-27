@@ -10,27 +10,27 @@ def PermissionCheck(mystic):
         a = await app.get_chat_member(message.chat.id, BOT_ID)
         if a.status != "administrator":
             return await message.reply_text(
-                "I need to be admin with some permissions:\n"
-                + "\n- **can_manage_voice_chats:** To manage voice chats"
-                + "\n- **can_delete_messages:** To delete Bot's Searched Waste"
-                + "\n- **can_invite_users**: For inviting assistant to chat."
+                "🍒︙احتاج الي تلك الصلاحيات حتي استطيع العمل\n"
+                + "\n🍒︙اداره المحادثات المرئية للتحكم بالدردشة"
+                + "\n🍒︙حذف الرسائل لحذف رسائل البوت من محادثة المجموعة"
+                + "\n🍒︙دعوة اعضاء جديدة حتي استطيع دعوة الحساب المساعد للدردشة"
             )
         if not a.can_manage_voice_chats:
             await message.reply_text(
-                "I don't have the required permission to perform this action."
-                + "\n**Permission:** __MANAGE VOICE CHATS__"
+                "🍒︙ليس لدي صلاحية القيام بهذا الامر"
+                + "\n🍒︙اعطني صلاحية اداره المحادثات المرئيه"
             )
             return
         if not a.can_delete_messages:
             await message.reply_text(
-                "I don't have the required permission to perform this action."
-                + "\n**Permission:** __DELETE MESSAGES__"
+                "🍒︙ليس لدي صلاحية القيام بهذا الامر"
+                + "\n🍒︙اعطني صلاحية حذف الرسائل"
             )
             return
         if not a.can_invite_users:
             await message.reply_text(
-                "I don't have the required permission to perform this action."
-                + "\n**Permission:** __INVITE USERS VIA LINK__"
+                "🍒︙ليس لدي صلاحية القيام بهذا الامر"
+                + "\n🍒︙اعطني  صلاحية دعوة اعضاء بالرابط"
             )
             return
         return await mystic(_, message)
