@@ -208,7 +208,7 @@ async def stats_markup(_, CallbackQuery):
         start = datetime.now()
         uptime = await bot_sys_stats()
         await CallbackQuery.answer(
-            "Getting General Stats...", show_alert=True
+            "🍒︙الحصول على الإحصائيات العامة ...", show_alert=True
         )
         end = datetime.now()
         resp = (end - start).microseconds / 1000
