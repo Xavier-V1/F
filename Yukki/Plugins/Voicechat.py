@@ -25,15 +25,15 @@ __HELP__ = """
 للمطورين فقط
 
 
-/joinassistant [ايدي او معرف المجموعة]
+🍒︙ /joinassistant [ايدي او معرف المجموعة]
 - لانضمام الحساب المساعد للمجموعة.
 
 
-/leaveassistant [ايدي او معرف المجموعة]
+🍒︙ /leaveassistant [ايدي او معرف المجموعة]
 - المساعد سيترك المجموعة المعينة.
 
 
-/leavebot [ايدي او معرف المجموعة]
+🍒︙ /leavebot [ايدي او معرف المجموعة]
 - سيغادر الروبوت الدردشة المعينة.
 """
 
@@ -210,7 +210,7 @@ async def activevi_(_, message: Message):
 async def basffy(_, message):
     if len(message.command) != 2:
         await message.reply_text(
-            "**الاستخدام:**\n/joinassistant [ايدي المحادثة او المعرف]"
+            "**🍒︙الاستخدام:**\n🍒︙ /joinassistant [ايدي المحادثة او المعرف]"
         )
         return
     chat = message.text.split(None, 2)[1]
@@ -242,7 +242,7 @@ async def basffy(_, message):
 async def baaaf(_, message):
     if len(message.command) != 2:
         await message.reply_text(
-            "**الاستخدام:**\n/leavebot [ايدي او معرف الدردشه]"
+            "**🍒︙ الاستخدام:**\n🍒︙ /leavebot [ايدي او معرف الدردشه]"
         )
         return
     chat = message.text.split(None, 2)[1]
@@ -259,7 +259,7 @@ async def baaaf(_, message):
 async def baujaf(_, message):
     if len(message.command) != 2:
         await message.reply_text(
-            "**الاستخدام:**\n/leave [ايدي او معرف الدردشه]"
+            "**🍒︙ الاستخدام:**\n🍒︙ /leave [ايدي او معرف الدردشه]"
         )
         return
     chat = message.text.split(None, 2)[1]

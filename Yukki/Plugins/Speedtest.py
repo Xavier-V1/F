@@ -8,44 +8,42 @@ from pyrogram.types import Message
 from Yukki import BOT_ID, SUDOERS, app
 from Yukki.Utilities.formatters import bytes
 
-__MODULE__ = "Speedtest"
+__MODULE__ = "اختبار السرعه"
 __HELP__ = """
 
-/speedtest 
-- Check Server Latency and Speed.
+🍒︙ /speedtest 
+- ليتم اختبار سرعه البوت
 
 """
 
 
 @app.on_message(filters.command("speedtest") & ~filters.edited)
 async def statsguwid(_, message):
-    m = await message.reply_text("Running Speed test")
+    m = await message.reply_text("🍒︙يتم اختبار السرعه")
     try:
         test = speedtest.Speedtest()
         test.get_best_server()
-        m = await m.edit("Running Download SpeedTest")
+        m = await m.edit("🍒︙يتم اختبار سرعه التحميل")
         test.download()
-        m = await m.edit("Running Upload SpeedTest")
+        m = await m.edit("🍒︙يتم اختبار سرعه الرفع")
         test.upload()
         test.results.share()
         result = test.results.dict()
     except Exception as e:
         return await m.edit(e)
-    m = await m.edit("Sharing SpeedTest Results")
+    m = await m.edit("🍒︙مشاركه النتائج ")
     path = wget.download(result["share"])
 
-    output = f"""**Speedtest Results**
+    output = f"""**🍒︙نتيجه اختبار السرعه**
     
-<u>**Client:**</u>
-**__ISP:__** {result['client']['isp']}
-**__Country:__** {result['client']['country']}
+<u>**🍒︙الخادم**</u>
+**__🍒︙الايبي__** {result['client']['isp']}
+**__🍒︙الدوله__** {result['client']['country']}
   
-<u>**Server:**</u>
-**__Name:__** {result['server']['name']}
-**__Country:__** {result['server']['country']}, {result['server']['cc']}
-**__Sponsor:__** {result['server']['sponsor']}
-**__Latency:__** {result['server']['latency']}  
-**__Ping:__** {result['ping']}"""
+<u>**🍒︙السيرفر**</u>
+**__🍒︙الاسم__** {result['server']['name']}
+**__🍒︙الدوله__** {result['server']['country']}, {result['server']['cc']}
+**__🍒︙السرعه__** {result['ping']}"""
     msg = await app.send_photo(
         chat_id=message.chat.id, photo=path, caption=output
     )
