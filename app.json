@@ -1,13 +1,13 @@
 {
-  "name": "Yukki Music Bot",
+  "name": "revor Music Bot",
   "description": "A Telegram Music Bot with proper functions written in Python with Pyrogram and Py-Tgcalls.",
-  "logo": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg",
+  "logo": "https://telegra.ph/file/b9ffba458034bdeed9ed2.jpg",
   "keywords": [
   "python3",
   "telegram",
   "bot",
-  "Yukki",
-  "YukkiMusicBot",
+  "revor",
+  "revormusicbot",
   "telegram-bot",
   "pyrogram"
   ],
@@ -115,7 +115,7 @@
     },
     "UPSTREAM_REPO": {
       "description": "If you dont know this, Leave as it is",
-      "value": "https://github.com/NotReallyShikhar/YukkiMusicBot",
+      "value": "https://github.com/DEV-SONIC/RevorMusic",
       "required": true
     },
     "UPSTREAM_BRANCH": {
