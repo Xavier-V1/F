@@ -1,4 +1,4 @@
-لimport asyncio
+import asyncio
 from os import path
 
 from pyrogram import filters
