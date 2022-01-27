@@ -33,7 +33,7 @@ HELPABLE = {}
 
 async def initiate_bot():
     with console.status(
-        "[magenta] Finalizing Booting...",
+        "[magenta] تم بدء تنصيب سورس ريفور ميوزك...",
     ) as status:
         try:
             chats = await get_active_video_chats()
@@ -50,11 +50,11 @@ async def initiate_bot():
         except Exception as e:
             pass
         status.update(
-            status="[bold blue]Scanning for Plugins", spinner="earth"
+            status="[bold blue]يتم فحص المميوات", spinner="earth"
         )
         console.print("Found {} Plugins".format(len(ALL_MODULES)) + "\n")
         status.update(
-            status="[bold red]Importing Plugins...",
+            status="[bold red]يتم تحميل المميزات...",
             spinner="bouncingBall",
             spinner_style="yellow",
         )
@@ -75,128 +75,128 @@ async def initiate_bot():
                         imported_module.__MODULE__.lower()
                     ] = imported_module
             console.print(
-                f">> [bold cyan]Successfully imported: [green]{all_module}.py"
+                f">> [bold cyan]تم تحميل ملف : [green]{all_module}.py"
             )
         console.print("")
         status.update(
-            status="[bold blue]Importation Completed!",
+            status="[bold blue]تم اكتمال التحميل!",
         )
     console.print(
-        "[bold green]Congrats!! Yukki Music Bot has started successfully!\n"
+        "[bold green]مبروك تم تنصيب البوت بنجاح!\n"
     )
     try:
         await app.send_message(
             LOG_GROUP_ID,
-            "<b>Congrats!! Music Bot has started successfully!</b>",
+            "<b>Congrats!! تم بدء بوت اغاني علي سورس ريفور بنجاح!</b>",
         )
     except Exception as e:
         print(
-            "\nBot has failed to access the log Channel. Make sure that you have added your bot to your log channel and promoted as admin!"
+            "\nفشل البوت في القناه تأكد من رفعك للبوت ادمن بالقناة!"
         )
-        console.print(f"\n[red]Stopping Bot")
+        console.print(f"\n[red]تم ايقاف البوت")
         return
     a = await app.get_chat_member(LOG_GROUP_ID, BOT_ID)
     if a.status != "administrator":
-        print("Promote Bot as Admin in Logger Channel")
-        console.print(f"\n[red]Stopping Bot")
+        print("قم برفع البوت ادمن بقناة الدخول")
+        console.print(f"\n[red]تم ايقاف البوت")
         return
     console.print(f"\n┌[red] Bot Started as {BOT_NAME}!")
-    console.print(f"├[green] ID :- {BOT_ID}!")
+    console.print(f"├[green] الايدي :- {BOT_ID}!")
     if STRING1 != "None":
         try:
             await ASS_CLI_1.send_message(
                 LOG_GROUP_ID,
-                "<b>Congrats!! Assistant Client 1  has started successfully!</b>",
+                "<b>تم حفظ الحساب المساعد الاول!</b>",
             )
         except Exception as e:
             print(
-                "\nAssistant Account 1 has failed to access the log Channel. Make sure that you have added your Assistant to your log channel and promoted as admin!"
+                "\nحدث خطأ تأكد من رفعك للبوت المساعد ادمن بقناه الدخول!"
             )
-            console.print(f"\n[red]Stopping Bot")
+            console.print(f"\n[red]تم ايقاف البوت")
             return
         try:
-            await ASS_CLI_1.join_chat("OfficialYukki")
-            await ASS_CLI_1.join_chat("YukkiSupport")
+            await ASS_CLI_1.join_chat("revorb0t")
+            await ASS_CLI_1.join_chat("kkv65r")
         except:
             pass
-        console.print(f"├[red] Assistant 1 Started as {ASSNAME1}!")
-        console.print(f"├[green] ID :- {ASSID1}!")
+        console.print(f"├[red] بدأالحساب المساعد الاول {ASSNAME1}!")
+        console.print(f"├[green] ايدي :- {ASSID1}!")
     if STRING2 != "None":
         try:
             await ASS_CLI_2.send_message(
                 LOG_GROUP_ID,
-                "<b>Congrats!! Assistant Client 2 has started successfully!</b>",
+                "<b>تم حفظ الحساب المساعد الثاني!</b>",
             )
         except Exception as e:
             print(
-                "\nAssistant Account 2 has failed to access the log Channel. Make sure that you have added your Assistant to your log channel and promoted as admin!"
+                "\nحدث خطأ تأكد من رفعك للبوت المساعد ادمن بقناه الدخول!"
             )
-            console.print(f"\n[red]Stopping Bot")
+            console.print(f"\n[red]تم ايقاف البوت")
             return
         try:
-            await ASS_CLI_2.join_chat("OfficialYukki")
-            await ASS_CLI_2.join_chat("YukkiSupport")
+            await ASS_CLI_2.join_chat("revorb0t")
+            await ASS_CLI_2.join_chat("kkv65r")
         except:
             pass
-        console.print(f"├[red] Assistant 2 Started as {ASSNAME2}!")
-        console.print(f"├[green] ID :- {ASSID2}!")
+        console.print(f"├[red] تم بدء الحساب المساعد الثاني {ASSNAME2}!")
+        console.print(f"├[green] الايدي :- {ASSID2}!")
     if STRING3 != "None":
         try:
             await ASS_CLI_3.send_message(
                 LOG_GROUP_ID,
-                "<b>Congrats!! Assistant Client 3 has started successfully!</b>",
+                "<b>تم حفظ الحساب المساعد الثالث!</b>",
             )
         except Exception as e:
             print(
-                "\nAssistant Account 3 has failed to access the log Channel. Make sure that you have added your Assistant to your log channel and promoted as admin!"
+                "\nحدث خطأ تأكد من رفعك للبوت المساعد ادمن بقناه الدخول!"
             )
-            console.print(f"\n[red]Stopping Bot")
+            console.print(f"\n[red]تم ايقاف البوت")
             return
         try:
-            await ASS_CLI_3.join_chat("OfficialYukki")
-            await ASS_CLI_3.join_chat("YukkiSupport")
+            await ASS_CLI_3.join_chat("revorb0t")
+            await ASS_CLI_3.join_chat("kkv65r")
         except:
             pass
-        console.print(f"├[red] Assistant 3 Started as {ASSNAME3}!")
-        console.print(f"├[green] ID :- {ASSID3}!")
+        console.print(f"├[red] تم بدأالحساب المساعد {ASSNAME3}!")
+        console.print(f"├[green] الايدي :- {ASSID3}!")
     if STRING4 != "None":
         try:
             await ASS_CLI_4.send_message(
                 LOG_GROUP_ID,
-                "<b>Congrats!! Assistant Client 4 has started successfully!</b>",
+                "<b>تم بدء الحساب المساعد الرابع بنجاح!</b>",
             )
         except Exception as e:
             print(
-                "\nAssistant Account 4 has failed to access the log Channel. Make sure that you have added your Assistant to your log channel and promoted as admin!"
+                "\nحدث خطأ تأكد من رفعك للبوت المساعد ادمن بقناه الدخول "
             )
-            console.print(f"\n[red]Stopping Bot")
+            console.print(f"\n[red]تم ايقاف البوت")
             return
         try:
-            await ASS_CLI_4.join_chat("OfficialYukki")
-            await ASS_CLI_4.join_chat("YukkiSupport")
+            await ASS_CLI_4.join_chat("revorb0t")
+            await ASS_CLI_4.join_chat("kkv65r")
         except:
             pass
-        console.print(f"├[red] Assistant 4 Started as {ASSNAME4}!")
-        console.print(f"├[green] ID :- {ASSID4}!")
+        console.print(f"├[red] تم بدء الحساب المساعد {ASSNAME4}!")
+        console.print(f"├[green] الايدي :- {ASSID4}!")
     if STRING5 != "None":
         try:
             await ASS_CLI_5.send_message(
                 LOG_GROUP_ID,
-                "<b>Congrats!! Assistant Client 5 has started successfully!</b>",
+                "<b>تم بدء الحساب المساعد الخامس !</b>",
             )
         except Exception as e:
             print(
-                "\nAssistant Account 5 has failed to access the log Channel. Make sure that you have added your Assistant to your log channel and promoted as admin!"
+                "\nحدث خطأ تأكد من رفعك للبوت المساعد ادمن بقناه الدخول"
             )
-            console.print(f"\n[red]Stopping Bot")
+            console.print(f"\n[red]تم ايقاف البوت")
             return
         try:
-            await ASS_CLI_5.join_chat("OfficialYukki")
-            await ASS_CLI_5.join_chat("YukkiSupport")
+            await ASS_CLI_5.join_chat("revorb0t")
+            await ASS_CLI_5.join_chat("kkv65r")
         except:
             pass
-        console.print(f"├[red] Assistant 5 Started as {ASSNAME5}!")
-        console.print(f"├[green] ID :- {ASSID5}!")
+        console.print(f"├[red] تم بدء الحساب لمساعد {ASSNAME5}!")
+        console.print(f"├[green] الايدي :- {ASSID5}!")
     if LOG_SESSION != "None":
         try:
             await LOG_CLIENT.send_message(
@@ -205,16 +205,16 @@ async def initiate_bot():
             )
         except Exception as e:
             print(
-                "\nLogger Client has failed to access the log Channel. Make sure that you have added your Logger Account to your log channel and promoted as admin!"
+                "\nفشل Logger Client في الوصول إلى قناة السجل. تأكد من أنك قد أضفت حساب المسجل الخاص بك إلى قناة السجل الخاصة بك وقمت بالترقية كمسؤول!"
             )
-            console.print(f"\n[red]Stopping Bot")
+            console.print(f"\n[red]تم ايقاف البوت")
             return
         try:
-            await LOG_CLIENT.join_chat("OfficialYukki")
-            await LOG_CLIENT.join_chat("YukkiSupport")
+            await LOG_CLIENT.join_chat("revorb0t")
+            await LOG_CLIENT.join_chat("kkv65r")
         except:
             pass
-    console.print(f"└[red] Yukki Music Bot Boot Completed.")
+    console.print(f"└[red] تم تنصيب بوت الاغاني بنجاح.")
     if STRING1 != "None":
         await pytgcalls1.start()
     if STRING2 != "None":
@@ -226,14 +226,14 @@ async def initiate_bot():
     if STRING5 != "None":
         await pytgcalls5.start()
     await idle()
-    console.print(f"\n[red]Stopping Bot")
+    console.print(f"\n[red]يتم ايقاف البوت")
 
 
-home_text_pm = f"""Hello ,
-My name is {BOT_NAME}.
-A Telegram Music+Video Streaming bot with some useful features.
+home_text_pm = f"""مرحبا ,
+اسمي  {BOT_NAME}.
+انا بوت يقوم بتشغيل الاغاني / الفيديو في المحادثة الصوتيه بمجموعتك.
 
-All commands can be used with: / """
+جميع الاوامر تبدء ب : / """
 
 
 @app.on_message(filters.command("help") & filters.private)
@@ -248,7 +248,7 @@ async def start_command(_, message):
         name = (message.text.split(None, 1)[1]).lower()
         if name[0] == "s":
             sudoers = await get_sudoers()
-            text = "⭐️<u> **Owners:**</u>\n"
+            text = "🎸︙<u> **المالكين:**</u>\n"
             sex = 0
             for x in OWNER_ID:
                 try:
@@ -272,13 +272,13 @@ async def start_command(_, message):
                         )
                         if smex == 0:
                             smex += 1
-                            text += "\n⭐️<u> **Sudo Users:**</u>\n"
+                            text += "\n🎸︙<u> **للمطورين**</u>\n"
                         sex += 1
                         text += f"{sex}➤ {user}\n"
                     except Exception:
                         continue
             if not text:
-                await message.reply_text("No Sudo Users")
+                await message.reply_text("🎸︙ لا يوجد مطورين")
             else:
                 await message.reply_text(text)
             if await is_on_off(5):
@@ -287,7 +287,7 @@ async def start_command(_, message):
                 umention = f"[{sender_name}](tg://user?id={int(sender_id)})"
                 return await LOG_CLIENT.send_message(
                     LOG_GROUP_ID,
-                    f"{message.from_user.mention} has just started bot to check <code>SUDOLIST</code>\n\n**USER ID:** {sender_id}\n**USER NAME:** {sender_name}",
+                    f"{message.from_user.mention} بدء البوت في فحص <code>SUDOLIST</code>\n\n**ايدي العضو:** {sender_id}\n**معرف العضو:** {sender_name}",
                 )
         if name == "help":
             text, keyboard = await help_parser(message.from_user.mention)
@@ -298,7 +298,7 @@ async def start_command(_, message):
                 reply_markup=keyboard,
             )
         if name[0] == "i":
-            m = await message.reply_text("🔎 Fetching Info!")
+            m = await message.reply_text("🍒︙ يتم إحضار المعلومات برجاء الانتظار")
             query = (str(name)).replace("info_", "", 1)
             query = f"https://www.youtube.com/watch?v={query}"
             results = VideosSearch(query, limit=1)
@@ -312,26 +312,26 @@ async def start_command(_, message):
                 link = result["link"]
                 published = result["publishedTime"]
             searched_text = f"""
-🔍__**Video Track Information**__
+🎸 **تم تحميل الفيديو بنجاح**
 
-❇️**Title:** {title}
+🎸 **العنوان:** {title}
 
-⏳**Duration:** {duration} Mins
-👀**Views:** `{views}`
-⏰**Published Time:** {published}
-🎥**Channel Name:** {channel}
-📎**Channel Link:** [Visit From Here]({channellink})
-🔗**Video Link:** [Link]({link})
+🎸 **المده :** {duration} Mins
+🎸 **المشاهدات:** `{views}`
+🎸 **وقت النشر:** {published}
+🎸 **اسم القناة:** {channel}
+🎸 **رابط القناة:** [link]({channellink})
+🎸 **رابط الفيديو :** [Link]({link})
 
-⚡️ __Searched Powered By {BOT_NAME}__"""
+🎸 تم التحميل بواسطة  {BOT_NAME}"""
             key = InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton(
-                            text="🎥 Watch Youtube Video", url=f"{link}"
+                            text="🎥 شاهد الفيديو علي اليوتيوب", url=f"{link}"
                         ),
                         InlineKeyboardButton(
-                            text="🔄 Close", callback_data="close"
+                            text="✗ اغلاق", callback_data="close"
                         ),
                     ],
                 ]
@@ -350,7 +350,7 @@ async def start_command(_, message):
                 umention = f"[{sender_name}](tg://user?id={int(sender_id)})"
                 return await LOG_CLIENT.send_message(
                     LOG_GROUP_ID,
-                    f"{message.from_user.mention} has just started bot to check <code>VIDEO INFORMATION</code>\n\n**USER ID:** {sender_id}\n**USER NAME:** {sender_name}",
+                    f"{message.from_user.mention} يقوم البوت بفحص <code>VIDEO INFORMATION</code>\n\n**الايدي:** {sender_id}\n**المعرف:** {sender_name}",
                 )
             return
     out = private_panel()
@@ -364,7 +364,7 @@ async def start_command(_, message):
         umention = f"[{sender_name}](tg://user?id={int(sender_id)})"
         return await LOG_CLIENT.send_message(
             LOG_GROUP_ID,
-            f"{message.from_user.mention} has just started Bot.\n\n**USER ID:** {sender_id}\n**USER NAME:** {sender_name}",
+            f"{message.from_user.mention} قام ب بدء البوت.\n\n**الايدي :** {sender_id}\n**المعرف :** {sender_name}",
         )
     return
 
@@ -373,11 +373,11 @@ async def help_parser(name, keyboard=None):
     if not keyboard:
         keyboard = InlineKeyboardMarkup(paginate_modules(0, HELPABLE, "help"))
     return (
-        """Hello {first_name},
+        """مرحبا {first_name},
 
-Click on the buttons for more information.
+اضغط علي الازرار للمزيد من المعلومات.
 
-All commands can be used with: /
+كل الاوامر تبدء ب: /
 """.format(
             first_name=name
         ),
@@ -399,17 +399,17 @@ async def help_button(client, query):
     next_match = re.match(r"help_next\((.+?)\)", query.data)
     back_match = re.match(r"help_back", query.data)
     create_match = re.match(r"help_create", query.data)
-    top_text = f"""Hello {query.from_user.first_name},
+    top_text = f"""مرحبا {query.from_user.first_name},
 
-Click on the buttons for more information.
+اضغط علي الازرار للمزيد من الاوامر.
 
-All commands can be used with: /
+جميع الاوامر تبدء ب : /
  """
     if mod_match:
         module = mod_match.group(1)
         text = (
             "{} **{}**:\n".format(
-                "Here is the help for", HELPABLE[module].__MODULE__
+                "ها هي المساعدة ل ", HELPABLE[module].__MODULE__
             )
             + HELPABLE[module].__HELP__
         )
@@ -417,10 +417,10 @@ All commands can be used with: /
             [
                 [
                     InlineKeyboardButton(
-                        text="↪️ Back", callback_data="help_back"
+                        text="↪️ رجوع", callback_data="help_back"
                     ),
                     InlineKeyboardButton(
-                        text="🔄 Close", callback_data="close"
+                        text="✗ اغلاق", callback_data="close"
                     ),
                 ],
             ]
