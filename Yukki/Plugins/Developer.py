@@ -18,22 +18,22 @@ from Yukki.Utilities.tasks import add_task, rm_task
 
 # Eval and Sh module from WBB
 
-__MODULE__ = "Broadcast"
+__MODULE__ = "الاذاعه"
 __HELP__ = """
-**Note:**
-Only for Sudo Users.
+**ملحوظه:**
+للمطورين فقط
 
 
-/broadcast [Message or Reply to a Message]
-- Broadcast any message to Bot's Served Chats.
+🍒︙ /broadcast [رسالة أو رد على رسالة]
+- قم باذاعه أي رسالة إلى الدردشات التي يقدمها البوت 
 
 
-/broadcast_pin [Message or Reply to a Message]
-- Broadcast any message to Bot's Served Chats with message getting Pinned in chat [Disabled Notifications].
+🍒︙ /broadcast_pin [رسالة أو رد على رسالة]
+- اذاعه بالتثبيت [أوقف التنبيهات].
 
 
-/broadcast_pin_loud [Message or Reply to a Message]
-- Broadcast any message to Bot's Served Chats with message getting Pinned in chat [Enabled Notifications].
+🍒︙ /broadcast_pin_loud [رسالة أو رد على رسالة]
+- اذاعه بالتثبيت [تفعيل التنبيهات].
 """
 
 
@@ -60,7 +60,7 @@ async def edit_or_reply(msg: Message, **kwargs):
 async def executor(client, message):
     if len(message.command) < 2:
         return await edit_or_reply(
-            message, text="__Nigga Give me some command to execute.__"
+            message, text="🍒︙ يا صديقي أعطني بعض الأوامر للتنفيذ"
         )
     try:
         cmd = message.text.split(" ", maxsplit=1)[1]
@@ -89,7 +89,7 @@ async def executor(client, message):
         evaluation = stdout
     else:
         evaluation = "Success"
-    final_output = f"**OUTPUT**:\n```{evaluation.strip()}```"
+    final_output = f"**🍒︙الانتاج**:\n```{evaluation.strip()}```"
     if len(final_output) > 4096:
         filename = "output.txt"
         with open(filename, "w+", encoding="utf8") as out_file:
@@ -99,14 +99,14 @@ async def executor(client, message):
             [
                 [
                     InlineKeyboardButton(
-                        text="⏳", callback_data=f"runtime {t2-t1} Seconds"
+                        text="🍒︙", callback_data=f"وقت التشغيل {t2-t1} ثانيه"
                     )
                 ]
             ]
         )
         await message.reply_document(
             document=filename,
-            caption=f"**INPUT:**\n`{cmd[0:980]}`\n\n**OUTPUT:**\n`Attached Document`",
+            caption=f"**🍒︙المدخله:**\n`{cmd[0:980]}`\n\n**🍒︙المخرجه:**\n`🍒︙مستندات مرفقة`",
             quote=False,
             reply_markup=keyboard,
         )
@@ -118,11 +118,11 @@ async def executor(client, message):
             [
                 [
                     InlineKeyboardButton(
-                        text="⏳",
-                        callback_data=f"runtime {round(t2-t1, 3)} Seconds",
+                        text="🍒",
+                        callback_data=f"وقت التشغيل {round(t2-t1, 3)} ثواني",
                     ),
                     InlineKeyboardButton(
-                        text="🗑",
+                        text="🍒",
                         callback_data=f"forceclose abc|{message.from_user.id}",
                     ),
                 ]
@@ -145,7 +145,7 @@ async def runtime_func_cq(_, cq):
 )
 async def shellrunner(client, message):
     if len(message.command) < 2:
-        return await edit_or_reply(message, text="**Usage:**\n/sh git pull")
+        return await edit_or_reply(message, text="**🍒 : الاستخدام**\n/sh بوابة السحب")
     text = message.text.split(None, 1)[1]
     if "\n" in text:
         code = text.split("\n")
@@ -160,7 +160,7 @@ async def shellrunner(client, message):
                 )
             except Exception as err:
                 print(err)
-                await edit_or_reply(message, text=f"**ERROR:**\n```{err}```")
+                await edit_or_reply(message, text=f"**🍒 : خطأ**\n```{err}```")
             output += f"**{code}**\n"
             output += process.stdout.read()[:-1].decode("utf-8")
             output += "\n"
@@ -183,7 +183,7 @@ async def shellrunner(client, message):
                 tb=exc_tb,
             )
             return await edit_or_reply(
-                message, text=f"**ERROR:**\n```{''.join(errors)}```"
+                message, text=f"**🍒 : خطأ**\n```{''.join(errors)}```"
             )
         output = process.stdout.read()[:-1].decode("utf-8")
     if str(output) == "\n":
@@ -199,6 +199,6 @@ async def shellrunner(client, message):
                 caption="`Output`",
             )
             return os.remove("output.txt")
-        await edit_or_reply(message, text=f"**OUTPUT:**\n```{output}```")
+        await edit_or_reply(message, text=f"**المخرجه:**\n```{output}```")
     else:
-        await edit_or_reply(message, text="**OUTPUT: **\n`No output`")
+        await edit_or_reply(message, text="**المخرجه: **\n`لا يوجد دوال مخرجه`")
