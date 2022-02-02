@@ -33,7 +33,7 @@ HELPABLE = {}
 
 async def initiate_bot():
     with console.status(
-        "[magenta] تم بدء تنصيب سورس ريفور ميوزك...",
+        "[magenta] تم بدء تنصيب سورس زينه ميوزك...",
     ) as status:
         try:
             chats = await get_active_video_chats()
@@ -87,7 +87,7 @@ async def initiate_bot():
     try:
         await app.send_message(
             LOG_GROUP_ID,
-            "<b>Congrats!! تم بدء بوت اغاني علي سورس ريفور بنجاح!</b>",
+            "<b>Congrats!! تم بدء بوت اغاني علي سورس زينه بنجاح!</b>",
         )
     except Exception as e:
         print(
@@ -115,8 +115,8 @@ async def initiate_bot():
             console.print(f"\n[red]تم ايقاف البوت")
             return
         try:
-            await ASS_CLI_1.join_chat("revorb0t")
-            await ASS_CLI_1.join_chat("kkv65r")
+            await ASS_CLI_1.join_chat("ZeiNaaMuSic")
+            await ASS_CLI_1.join_chat("ZeiNaMu")
         except:
             pass
         console.print(f"├[red] بدأالحساب المساعد الاول {ASSNAME1}!")
@@ -134,8 +134,8 @@ async def initiate_bot():
             console.print(f"\n[red]تم ايقاف البوت")
             return
         try:
-            await ASS_CLI_2.join_chat("revorb0t")
-            await ASS_CLI_2.join_chat("kkv65r")
+            await ASS_CLI_2.join_chat("ZeiNaaMuSic")
+            await ASS_CLI_2.join_chat("ZeiNaMu")
         except:
             pass
         console.print(f"├[red] تم بدء الحساب المساعد الثاني {ASSNAME2}!")
@@ -153,8 +153,8 @@ async def initiate_bot():
             console.print(f"\n[red]تم ايقاف البوت")
             return
         try:
-            await ASS_CLI_3.join_chat("revorb0t")
-            await ASS_CLI_3.join_chat("kkv65r")
+            await ASS_CLI_3.join_chat("ZeiNaaMuSic")
+            await ASS_CLI_3.join_chat("ZeiNaMu")
         except:
             pass
         console.print(f"├[red] تم بدأالحساب المساعد {ASSNAME3}!")
@@ -172,8 +172,8 @@ async def initiate_bot():
             console.print(f"\n[red]تم ايقاف البوت")
             return
         try:
-            await ASS_CLI_4.join_chat("revorb0t")
-            await ASS_CLI_4.join_chat("kkv65r")
+            await ASS_CLI_4.join_chat("ZeiNaaMuSic")
+            await ASS_CLI_4.join_chat("ZeiNaMu")
         except:
             pass
         console.print(f"├[red] تم بدء الحساب المساعد {ASSNAME4}!")
@@ -191,8 +191,8 @@ async def initiate_bot():
             console.print(f"\n[red]تم ايقاف البوت")
             return
         try:
-            await ASS_CLI_5.join_chat("revorb0t")
-            await ASS_CLI_5.join_chat("kkv65r")
+            await ASS_CLI_5.join_chat("ZeiNaaMuSic")
+            await ASS_CLI_5.join_chat("ZeiNaMu")
         except:
             pass
         console.print(f"├[red] تم بدء الحساب لمساعد {ASSNAME5}!")
@@ -210,8 +210,8 @@ async def initiate_bot():
             console.print(f"\n[red]تم ايقاف البوت")
             return
         try:
-            await LOG_CLIENT.join_chat("revorb0t")
-            await LOG_CLIENT.join_chat("kkv65r")
+            await LOG_CLIENT.join_chat("ZeiNaaMuSic")
+            await LOG_CLIENT.join_chat("ZeiNaMu")
         except:
             pass
     console.print(f"└[red] تم تنصيب بوت الاغاني بنجاح.")
@@ -248,7 +248,7 @@ async def start_command(_, message):
         name = (message.text.split(None, 1)[1]).lower()
         if name[0] == "s":
             sudoers = await get_sudoers()
-            text = "🎸︙<u> **المالكين:**</u>\n"
+            text = "⚡️︙<u> **المالكين:**</u>\n"
             sex = 0
             for x in OWNER_ID:
                 try:
@@ -272,13 +272,13 @@ async def start_command(_, message):
                         )
                         if smex == 0:
                             smex += 1
-                            text += "\n🎸︙<u> **للمطورين**</u>\n"
+                            text += "\n⚡️︙<u> **للمطورين**</u>\n"
                         sex += 1
                         text += f"{sex}➤ {user}\n"
                     except Exception:
                         continue
             if not text:
-                await message.reply_text("🎸︙ لا يوجد مطورين")
+                await message.reply_text("⚡️︙ لا يوجد مطورين")
             else:
                 await message.reply_text(text)
             if await is_on_off(5):
@@ -312,18 +312,18 @@ async def start_command(_, message):
                 link = result["link"]
                 published = result["publishedTime"]
             searched_text = f"""
-🎸 **تم تحميل الفيديو بنجاح**
+⚡️ **تم تحميل الفيديو بنجاح**
 
-🎸 **العنوان:** {title}
+⚡️ **العنوان:** {title}
 
-🎸 **المده :** {duration} Mins
-🎸 **المشاهدات:** `{views}`
-🎸 **وقت النشر:** {published}
-🎸 **اسم القناة:** {channel}
-🎸 **رابط القناة:** [link]({channellink})
-🎸 **رابط الفيديو :** [Link]({link})
+⚡️ **المده :** {duration} Mins
+⚡️ **المشاهدات:** `{views}`
+⚡️ **وقت النشر:** {published}
+⚡️ **اسم القناة:** {channel}
+⚡️ **رابط القناة:** [link]({channellink})
+⚡️ **رابط الفيديو :** [Link]({link})
 
-🎸 تم التحميل بواسطة  {BOT_NAME}"""
+⚡️ تم التحميل بواسطة  {BOT_NAME}"""
             key = InlineKeyboardMarkup(
                 [
                     [
