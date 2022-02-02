@@ -11,11 +11,11 @@ from Yukki import MUSIC_BOT_NAME, app
 __MODULE__ = "كلمات"
 __HELP__ = """
 
-🍒︙ /Lyrics [اسم الاغنيه]
+🥥︙ /Lyrics [اسم الاغنيه]
 - لجلب كلمات الاغنيه.
 
 **ملحوظه**:
-🍒︙يحتوي الزر المضمن في الأغاني على بعض الأخطاء. يبحث فقط عن 50٪ من النتائج. يمكنك استخدام الأمر بدلاً من ذلك إذا كنت تريد كلمات لأي موسيقى يتم تشغيلها.
+🥥︙يحتوي الزر المضمن في الأغاني على بعض الأخطاء. يبحث فقط عن 50٪ من النتائج. يمكنك استخدام الأمر بدلاً من ذلك إذا كنت تريد كلمات لأي موسيقى يتم تشغيلها.
 
 """
 
@@ -28,7 +28,7 @@ async def lyricssex(_, CallbackQuery):
         id, user_id = callback_request.split("|")
     except Exception as e:
         return await CallbackQuery.message.edit(
-            f"🍒︙حدث خطأ\n🍒︙**يمكن أن يكون السبب المحتمل**:{e}"
+            f"🥥︙حدث خطأ\n🥥︙**يمكن أن يكون السبب المحتمل**:{e}"
         )
     url = f"https://www.youtube.com/watch?v={id}"
     print(url)
@@ -38,7 +38,7 @@ async def lyricssex(_, CallbackQuery):
             title = result["title"]
     except Exception as e:
         return await CallbackQuery.answer(
-            "🍒︙الصوت غير موجود. مشاكل يوتيوب.", show_alert=True
+            "🥥︙الصوت غير موجود. مشاكل يوتيوب.", show_alert=True
         )
     x = "OXaVabSRKQLqwpiYOn-E4Y7k3wj-TNdL5RfDPXlnXhCErbcqVvdCF-WnMR5TBctI"
     y = lyricsgenius.Genius(x)
@@ -53,15 +53,15 @@ async def lyricssex(_, CallbackQuery):
     userid = CallbackQuery.from_user.id
     usr = f"[{CallbackQuery.from_user.first_name}](tg://user?id={userid})"
     xxx = f"""
-**🍒︙كلمات البحث مدعوم من {MUSIC_BOT_NAME}**
+**🥥︙كلمات البحث مدعوم من {MUSIC_BOT_NAME}**
 
-**🍒︙بحثت بواسطة: -** {usr}
-**🍒︙الأغنية التي تم البحث عنها: -** __{title}__
+**🥥︙بحثت بواسطة: -** {usr}
+**🥥︙الأغنية التي تم البحث عنها: -** __{title}__
 
-**🍒︙كلمات وجدت ل: -** __{S.title}__
-**🍒︙الفنان:-** {S.artist}
+**🥥︙كلمات وجدت ل: -** __{S.title}__
+**🥥︙الفنان:-** {S.artist}
 
-**__🍒︙الكلمات__**
+**__🥥︙الكلمات__**
 
 {S.lyrics}"""
     if len(xxx) > 4096:
@@ -70,7 +70,7 @@ async def lyricssex(_, CallbackQuery):
             out_file.write(str(xxx.strip()))
         await CallbackQuery.message.reply_document(
             document=filename,
-            caption=f"**🍒︙انتاج:**\n\n🍒︙`كلمات`",
+            caption=f"**🥥︙انتاج:**\n\n🥥︙`كلمات`",
             quote=False,
         )
         os.remove(filename)
@@ -81,7 +81,7 @@ async def lyricssex(_, CallbackQuery):
 @app.on_message(filters.command("lyrics"))
 async def lrsearch(_, message: Message):
     if len(message.command) < 2:
-        return await message.reply_text("**🍒︙الاستخدام**\n\n/lyrics [ اسم الاغنيه]")
+        return await message.reply_text("**🥥︙الاستخدام**\n\n/lyrics [ اسم الاغنيه]")
     m = await message.reply_text("Searching Lyrics")
     query = message.text.split(None, 1)[1]
     x = "OXaVabSRKQLqwpiYOn-E4Y7k3wj-TNdL5RfDPXlnXhCErbcqVvdCF-WnMR5TBctI"
@@ -89,15 +89,15 @@ async def lrsearch(_, message: Message):
     y.verbose = False
     S = y.search_song(query, get_full_info=False)
     if S is None:
-        return await m.edit("🍒︙لم اجد كلمات الاغنيه :p")
+        return await m.edit("🥥︙لم اجد كلمات الاغنيه :p")
     xxx = f"""
-**🍒︙تم البحث عن طريث {MUSIC_BOT_NAME}**
+**🥥︙تم البحث عن طريث {MUSIC_BOT_NAME}**
 
-**🍒︙الباحث :-** __{query}__
-**🍒︙وجدت ل:-** __{S.title}__
-**🍒︙الفنان:-** {S.artist}
+**🥥︙الباحث :-** __{query}__
+**🥥︙وجدت ل:-** __{S.title}__
+**🥥︙الفنان:-** {S.artist}
 
-**__🍒︙الكلمات:__**
+**__🥥︙الكلمات:__**
 
 {S.lyrics}"""
     if len(xxx) > 4096:
@@ -107,7 +107,7 @@ async def lrsearch(_, message: Message):
             out_file.write(str(xxx.strip()))
         await message.reply_document(
             document=filename,
-            caption=f"**🍒︙انتاج:**\n\n🍒︙`كلمات`",
+            caption=f"**🥥︙انتاج:**\n\n🥥︙`كلمات`",
             quote=False,
         )
         os.remove(filename)

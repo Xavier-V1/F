@@ -24,10 +24,10 @@ __HELP__ = """
 **ملحوظه**
 للمطورين فقط.
 
-🍒︙ /gban [معرف او بالرد]
+🥥︙ /gban [معرف او بالرد]
 - لحظر الشخص عام من البوت.
 
-🍒︙ /ungban [معرف او بالرد]
+🥥︙ /ungban [معرف او بالرد]
 - لالغاء الحظر العام
 """
 
@@ -71,11 +71,11 @@ async def ytdata(_, CallbackQuery):
 
 
 inl = InlineKeyboardMarkup(
-    [[InlineKeyboardButton(text="🍒︙يتم التحميل ......", callback_data=f"down")]]
+    [[InlineKeyboardButton(text="🥥︙يتم التحميل ......", callback_data=f"down")]]
 )
 
 upl = InlineKeyboardMarkup(
-    [[InlineKeyboardButton(text="🍒︙يتم الرفع ......", callback_data=f"down")]]
+    [[InlineKeyboardButton(text="🥥︙يتم الرفع ......", callback_data=f"down")]]
 )
 
 
@@ -83,7 +83,7 @@ def inl_mark(videoid, user_id):
     buttons = [
         [
             InlineKeyboardButton(
-                text="🍒︙فشل التنزيل أو الرفع......", callback_data=f"down"
+                text="🥥︙فشل التنزيل أو الرفع......", callback_data=f"down"
             )
         ],
         [
@@ -109,7 +109,7 @@ async def boom(_, CallbackQuery):
     user_id = CallbackQuery.from_user.id
     type, format_id, videoid = callback_request.split("||")
     mystic = await CallbackQuery.edit_message_text(
-        "🍒︙تم بدء التحميل\n\n🍒︙سرعه التحميل قد تكون بطيئه برجاء الانتظار..",
+        "🥥︙تم بدء التحميل\n\n🥥︙سرعه التحميل قد تكون بطيئه برجاء الانتظار..",
         reply_markup=inl,
     )
     yturl = f"https://www.youtube.com/watch?v={videoid}"
@@ -121,16 +121,16 @@ async def boom(_, CallbackQuery):
         thumb_image_path = result["thumbnails"][0]["url"]
         channel = channel = result["channel"]["name"]
         fetched = f"""
-🍒︙**تحميل الاغنيه**
+🥥︙**تحميل الاغنيه**
 
-🍒︙**العنوان:** {title}
+🥥︙**العنوان:** {title}
 
-🍒︙**المده:** {duration} Mins
-🍒︙**المشاهدات:** `{views}`
-🍒︙**اسم القناه:** {channel}
-🍒︙**الرابط:** [Link]({yturl})
+🥥︙**المده:** {duration} Mins
+🥥︙**المشاهدات:** `{views}`
+🥥︙**اسم القناه:** {channel}
+🥥︙**الرابط:** [Link]({yturl})
 
-🍒︙ __تم التحميل بواسطه {MUSIC_BOT_NAME}__"""
+🥥︙ __تم التحميل بواسطه {MUSIC_BOT_NAME}__"""
     filext = "%(title)s.%(ext)s"
     userdir = os.path.join(os.getcwd(), "downloads", str(user_id))
     if not os.path.isdir(userdir):
@@ -231,12 +231,12 @@ async def boom(_, CallbackQuery):
             )
         )
     else:
-        print("🍒︙غير موجود")
+        print("🥥︙غير موجود")
 
 
 def p_mark(link, channel):
     buttons = [
-        [InlineKeyboardButton(text="🍒︙مشاهده علي اليوتيوب", url=f"{link}")],
+        [InlineKeyboardButton(text="🥥︙مشاهده علي اليوتيوب", url=f"{link}")],
     ]
     return buttons
 
@@ -245,7 +245,7 @@ async def send_file(
     CallbackQuery, med, filename, videoid, user_id, link, channel
 ):
     await CallbackQuery.edit_message_text(
-        "🍒︙تم بدء التحميل\n\n🍒︙يمكن ان يكون هناك مشكله بسرعه النت.",
+        "🥥︙تم بدء التحميل\n\n🥥︙يمكن ان يكون هناك مشكله بسرعه النت.",
         reply_markup=upl,
     )
     try:

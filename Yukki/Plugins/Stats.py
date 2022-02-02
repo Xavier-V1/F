@@ -32,9 +32,9 @@ __MODULE__ = "حاله البوت"
 __HELP__ = """
 
 
-🍒︙ /stats
+🥥︙ /stats
 - لعرض حاله البوت
-- 🍒︙لعرض حالة مولنجو والسيرفر وهوروكا
+- 🥥︙لعرض حالة مولنجو والسيرفر وهوروكا
 """
 
 
@@ -44,10 +44,10 @@ async def bot_sys_stats():
     mem = psutil.virtual_memory().percent
     disk = psutil.disk_usage("/").percent
     stats = f"""
-**🍒︙وقت البدء** {get_readable_time((bot_uptime))}
-**🍒︙المعالج** {cpu}%
-**🍒︙الرام** {mem}%
-**🍒︙الذاكره **{disk}%"""
+**🥥︙وقت البدء** {get_readable_time((bot_uptime))}
+**🥥︙المعالج** {cpu}%
+**🥥︙الرام** {mem}%
+**🥥︙الذاكره **{disk}%"""
     return stats
 
 
@@ -65,9 +65,9 @@ async def gstats(_, message):
     end = datetime.now()
     resp = (end - start).microseconds / 1000
     smex = f"""
-[🍒︙]<u>**الحاله العامه**</u>
+[🥥︙]<u>**الحاله العامه**</u>
 
-🍒︙السرعه `{resp} ms ⚡`
+🥥︙السرعه `{resp} ms ⚡`
 {uptime}
     """
     await response.edit_text(smex, reply_markup=stats1)
@@ -82,7 +82,7 @@ async def gstats(_, message):
 async def stats_markup(_, CallbackQuery):
     command = CallbackQuery.matches[0].group(1)
     if command == "sys_stats":
-        await CallbackQuery.answer("🍒︙يتم جلب حالة النظام", show_alert=True)
+        await CallbackQuery.answer("🥥︙يتم جلب حالة النظام", show_alert=True)
         sc = platform.system()
         arch = platform.machine()
         p_core = psutil.cpu_count(logical=False)
@@ -94,34 +94,34 @@ async def stats_markup(_, CallbackQuery):
             else:
                 cpu_freq = f"{round(cpu_freq, 2)}MHz"
         except:
-            cpu_freq = "🍒︙غير قادر علي التحديد"
-        cupc = "**🍒︙المستخدم من المعالج**\n"
+            cpu_freq = "🥥︙غير قادر علي التحديد"
+        cupc = "**🥥︙المستخدم من المعالج**\n"
         for i, percentage in enumerate(psutil.cpu_percent(percpu=True)):
-            cupc += f"🍒︙المعالج {i}  : {percentage}%\n"
-        cupc += "**🍒︙اجمالي المستخدم**\n"
-        cupc += f"🍒︙اجمالي استخدام المعالجات {psutil.cpu_percent()}%\n"
+            cupc += f"🥥︙المعالج {i}  : {percentage}%\n"
+        cupc += "**🥥︙اجمالي المستخدم**\n"
+        cupc += f"🥥︙اجمالي استخدام المعالجات {psutil.cpu_percent()}%\n"
         ram = (
             str(round(psutil.virtual_memory().total / (1024.0 ** 3))) + " GB"
         )
         bot_uptime = int(time.time() - boottime)
         uptime = f"{get_readable_time((bot_uptime))}"
         smex = f"""
-[🍒︙]<u>**حاله النظام**</u>
+[🥥︙]<u>**حاله النظام**</u>
 
-**🍒︙ {MUSIC_BOT_NAME} وقت البدء** {uptime}
-**🍒︙حاله النظام متصل** 
-**🍒︙الرام** {ram}
-**🍒︙نسخه البايثون** {pyver.split()[0]}
-**🍒︙نسخه البايوجرام** {pyrover}
-**🍒︙نسخه بايثون المكالمات** {pytgover.__version__}
-[🍒︙]<u>**حاله المعالج**</u>
-**🍒︙المعالج الفيزيائي** {p_core}
-**🍒︙عدد المعالجات** {t_core}
+**🥥︙ {MUSIC_BOT_NAME} وقت البدء** {uptime}
+**🥥︙حاله النظام متصل** 
+**🥥︙الرام** {ram}
+**🥥︙نسخه البايثون** {pyver.split()[0]}
+**🥥︙نسخه البايوجرام** {pyrover}
+**🥥︙نسخه بايثون المكالمات** {pytgover.__version__}
+[🥥︙]<u>**حاله المعالج**</u>
+**🥥︙المعالج الفيزيائي** {p_core}
+**🥥︙عدد المعالجات** {t_core}
 """
         await CallbackQuery.edit_message_text(smex, reply_markup=stats2)
     if command == "sto_stats":
         await CallbackQuery.answer(
-            "🍒︙يتم جلب حاله المساحه", show_alert=True
+            "🥥︙يتم جلب حاله المساحه", show_alert=True
         )
         hdd = psutil.disk_usage("/")
         total = hdd.total / (1024.0 ** 3)
@@ -131,14 +131,14 @@ async def stats_markup(_, CallbackQuery):
         free = hdd.free / (1024.0 ** 3)
         free = str(free)
         smex = f"""
-[🍒︙]<u>**احصائيات التخزين**</u>
+[🥥︙]<u>**احصائيات التخزين**</u>
 
-**🍒︙المساحه ** {total[:4]} GiB
-**🍒︙المساحه المستخدمه** {used[:4]} GiB
-**🍒︙المساحه المتبقيه** {free[:4]} GiB"""
+**🥥︙المساحه ** {total[:4]} GiB
+**🥥︙المساحه المستخدمه** {used[:4]} GiB
+**🥥︙المساحه المتبقيه** {free[:4]} GiB"""
         await CallbackQuery.edit_message_text(smex, reply_markup=stats3)
     if command == "bot_stats":
-        await CallbackQuery.answer("🍒︙جلب احصائيات البوت", show_alert=True)
+        await CallbackQuery.answer("🥥︙جلب احصائيات البوت", show_alert=True)
         served_chats = []
         chats = await get_served_chats()
         for chat in chats:
@@ -154,30 +154,30 @@ async def stats_markup(_, CallbackQuery):
             except Exception:
                 continue
         smex = f"""
-[🍒︙]<u>**احصائيات البوت**</u>
+[🥥︙]<u>**احصائيات البوت**</u>
 
-**🍒︙الملفات المحمله** {modules_loaded}
-**🍒︙المحظورين عام** {blocked}
-**🍒︙المطورين** {j}
-**🍒︙عدد المجموعات** {len(served_chats)}"""
+**🥥︙الملفات المحمله** {modules_loaded}
+**🥥︙المحظورين عام** {blocked}
+**🥥︙المطورين** {j}
+**🥥︙عدد المجموعات** {len(served_chats)}"""
         await CallbackQuery.edit_message_text(smex, reply_markup=stats4)
     if command == "mongo_stats":
         await CallbackQuery.answer(
-            "🍒︙يتم جلب احصائيات مولنجو", show_alert=True
+            "🥥︙يتم جلب احصائيات مولنجو", show_alert=True
         )
         try:
             pymongo = MongoClient(MONGO_DB_URI)
         except Exception as e:
             print(e)
             return await CallbackQuery.edit_message_text(
-                "🍒︙حدث خطأ في جلب احصائيات مونجو", reply_markup=stats5
+                "🥥︙حدث خطأ في جلب احصائيات مونجو", reply_markup=stats5
             )
         try:
             db = pymongo.Yukki
         except Exception as e:
             print(e)
             return await CallbackQuery.edit_message_text(
-                "🍒︙حدث خطأ في جلب احصائيات مونجو", reply_markup=stats5
+                "🥥︙حدث خطأ في جلب احصائيات مونجو", reply_markup=stats5
             )
         call = db.command("dbstats")
         database = call["db"]
@@ -193,39 +193,39 @@ async def stats_markup(_, CallbackQuery):
         mongouptime = str(mongouptime)
         provider = status["repl"]["tags"]["provider"]
         smex = f"""
-[🍒︙]<u>**حاله مونجو**</u>
+[🥥︙]<u>**حاله مونجو**</u>
 
-**🍒︙وقت البدء** {mongouptime[:4]} Days
-**🍒︙الاصدار** {mver}
-**🍒︙قاعده البيانات** {database}
-**🍒︙حجم الذاكره** {datasize[:6]} Mb
-**🍒︙المساحه** {storage} Mb
-**🍒︙التجميعه** {collections}
-**🍒︙المفاتيح** {objects}
+**🥥︙وقت البدء** {mongouptime[:4]} Days
+**🥥︙الاصدار** {mver}
+**🥥︙قاعده البيانات** {database}
+**🥥︙حجم الذاكره** {datasize[:6]} Mb
+**🥥︙المساحه** {storage} Mb
+**🥥︙التجميعه** {collections}
+**🥥︙المفاتيح** {objects}
 """
         await CallbackQuery.edit_message_text(smex, reply_markup=stats5)
     if command == "gen_stats":
         start = datetime.now()
         uptime = await bot_sys_stats()
         await CallbackQuery.answer(
-            "🍒︙الحصول على الإحصائيات العامة ...", show_alert=True
+            "🥥︙الحصول على الإحصائيات العامة ...", show_alert=True
         )
         end = datetime.now()
         resp = (end - start).microseconds / 1000
         smex = f"""
-[🍒︙]<u>الحاله العامه</u>
+[🥥︙]<u>الحاله العامه</u>
 
-**🍒︙السرعه** `{resp} ⚡`
+**🥥︙السرعه** `{resp} ⚡`
 {uptime}"""
         await CallbackQuery.edit_message_text(smex, reply_markup=stats1)
     if command == "wait_stats":
         await CallbackQuery.answer()
     if command == "assis_stats":
         await CallbackQuery.answer(
-            "🍒︙يتم جلب احصائيات المساعد", show_alert=True
+            "🥥︙يتم جلب احصائيات المساعد", show_alert=True
         )
         await CallbackQuery.edit_message_text(
-            "🍒︙برجاء الانتظار يتم جلب احصائيات المساعد", reply_markup=stats7
+            "🥥︙برجاء الانتظار يتم جلب احصائيات المساعد", reply_markup=stats7
         )
         groups_ub = channels_ub = bots_ub = privates_ub = total_ub = 0
         groups_ub2 = channels_ub2 = bots_ub2 = privates_ub2 = total_ub2 = 0
@@ -298,44 +298,44 @@ async def stats_markup(_, CallbackQuery):
                 elif t == "private":
                     privates_ub5 += 1
 
-        msg = "[🍒︙]<u>حاله الحساب المساعد</u>"
+        msg = "[🥥︙]<u>حاله الحساب المساعد</u>"
         if STRING1 != "None":
-            msg += "\n\n<u>🍒︙المساعد الاول\n</u>"
-            msg += f"""**🍒︙الاحصائيات** {total_ub}
-**🍒︙الجروبات** {groups_ub}
-**🍒︙القنوات** {channels_ub}
-**🍒︙البوتات** {bots_ub}
-**🍒︙المشتركين** {privates_ub}"""
+            msg += "\n\n<u>🥥︙المساعد الاول\n</u>"
+            msg += f"""**🥥︙الاحصائيات** {total_ub}
+**🥥︙الجروبات** {groups_ub}
+**🥥︙القنوات** {channels_ub}
+**🥥︙البوتات** {bots_ub}
+**🥥︙المشتركين** {privates_ub}"""
 
         if STRING2 != "None":
-            msg += "\n\n<u>🍒︙المساعد الثاني\n</u>"
-            msg += f"""**🍒︙الاحصائيات** {total_ub2}
-**🍒︙الجروبات** {groups_ub2}
-**🍒︙القنوات** {channels_ub2}
-**🍒︙البوتات** {bots_ub2}
-**🍒︙المشتركين** {privates_ub2}"""
+            msg += "\n\n<u>🥥︙المساعد الثاني\n</u>"
+            msg += f"""**🥥︙الاحصائيات** {total_ub2}
+**🥥︙الجروبات** {groups_ub2}
+**🥥︙القنوات** {channels_ub2}
+**🥥︙البوتات** {bots_ub2}
+**🥥︙المشتركين** {privates_ub2}"""
 
         if STRING3 != "None":
-            msg += "\n\n<u>🍒︙المساعد الثالث\n</u>"
-            msg += f"""**🍒︙الاحصائيات** {total_ub3}
-**🍒︙الجروبات** {groups_ub3}
-**🍒︙القنوات** {channels_ub3}
-**🍒︙البوتات** {bots_ub3}
-**🍒︙المشتركين** {privates_ub3}"""
+            msg += "\n\n<u>🥥︙المساعد الثالث\n</u>"
+            msg += f"""**🥥︙الاحصائيات** {total_ub3}
+**🥥︙الجروبات** {groups_ub3}
+**🥥︙القنوات** {channels_ub3}
+**🥥︙البوتات** {bots_ub3}
+**🥥︙المشتركين** {privates_ub3}"""
 
         if STRING4 != "None":
-            msg += "\n\n<u>🍒︙المساعد الرابع\n</u>"
-            msg += f"""**🍒︙الاحصائيات** {total_ub4}
-**🍒︙الجروبات** {groups_ub4}
-**🍒︙القنوات** {channels_ub4}
-**🍒︙البوتات** {bots_ub4}
-**🍒︙المشتركين** {privates_ub4}"""
+            msg += "\n\n<u>🥥︙المساعد الرابع\n</u>"
+            msg += f"""**🥥︙الاحصائيات** {total_ub4}
+**🥥︙الجروبات** {groups_ub4}
+**🥥︙القنوات** {channels_ub4}
+**🥥︙البوتات** {bots_ub4}
+**🥥︙المشتركين** {privates_ub4}"""
 
         if STRING5 != "None":
-            msg += "\n\n<u>🍒︙المساعد الخامس\n</u>"
-            msg += f"""**🍒︙الاحصائيات** {total_ub5}
-**🍒︙الجروبات** {groups_ub5}
-**🍒︙القنوات** {channels_ub5}
-**🍒︙البوتات** {bots_ub5}
-**🍒︙المشتركين** {privates_ub5}"""
+            msg += "\n\n<u>🥥︙المساعد الخامس\n</u>"
+            msg += f"""**🥥︙الاحصائيات** {total_ub5}
+**🥥︙الجروبات** {groups_ub5}
+**🥥︙القنوات** {channels_ub5}
+**🥥︙البوتات** {bots_ub5}
+**🥥︙المشتركين** {privates_ub5}"""
         await CallbackQuery.edit_message_text(msg, reply_markup=stats6)

@@ -12,7 +12,7 @@ from Yukki.Utilities.ping import get_readable_time
 __MODULE__ = "البينج"
 __HELP__ = """
 
-🍒︙ /ping - معرفه ائا كان البوت يعمل او لا.
+🥥︙ /ping - معرفه ائا كان البوت يعمل او لا.
 """
 
 
@@ -22,10 +22,10 @@ async def bot_sys_stats():
     mem = psutil.virtual_memory().percent
     disk = psutil.disk_usage("/").percent
     stats = f"""
-🍒︙وقت البدء {get_readable_time((bot_uptime))}
-🍒︙المعالج {cpu}%
-🍒︙الرام {mem}%
-🍒︙التخزين {disk}%"""
+🥥︙وقت البدء {get_readable_time((bot_uptime))}
+🥥︙المعالج {cpu}%
+🥥︙الرام {mem}%
+🥥︙التخزين {disk}%"""
     return stats
 
 
@@ -40,5 +40,5 @@ async def ping(_, message):
     end = datetime.now()
     resp = (end - start).microseconds / 1000
     await response.edit_text(
-        f"**🍒︙بونج**\n`🍒︙{resp} ⚡`\n\n<b><u>🍒︙ بوت{MUSIC_BOT_NAME} حاله نظام</u></b>{uptime}"
+        f"**🥥︙بونج**\n`🥥︙{resp} ⚡`\n\n<b><u>🥥︙ بوت{MUSIC_BOT_NAME} حاله نظام</u></b>{uptime}"
     )

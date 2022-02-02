@@ -33,10 +33,10 @@ __MODULE__ = "الثيمات"
 __HELP__ = """
 
 
-🍒︙ /settheme
+🥥︙ /settheme
 - تعيين ثيم للصور المصغرة.
 
-🍒︙ /theme
+🥥︙ /theme
 - تحقق ثيم للدردشة الخاصة بك.
 """
 
@@ -45,7 +45,7 @@ __HELP__ = """
     filters.command(["settheme", f"settheme@{BOT_USERNAME}"]) & filters.group
 )
 async def settheme(_, message):
-    usage = f"🍒︙ هذا ليس ثيم.\n\n🍒︙اختر منهم\n{' | '.join(themes)}\n\n🍒︙استخدم 'Random' للحصول على اختيار عشوائي للثيمات"
+    usage = f"🥥︙ هذا ليس ثيم.\n\n🥥︙اختر منهم\n{' | '.join(themes)}\n\n🥥︙استخدم 'Random' للحصول على اختيار عشوائي للثيمات"
     if len(message.command) != 2:
         return await message.reply_text(usage)
     theme = message.text.split(None, 1)[1].strip()
@@ -55,7 +55,7 @@ async def settheme(_, message):
         "theme": theme,
     }
     await save_theme(message.chat.id, "theme", note)
-    await message.reply_text(f"🍒︙تم تغيير الثيم الي {theme}")
+    await message.reply_text(f"🥥︙تم تغيير الثيم الي {theme}")
 
 
 @app.on_message(filters.command("theme"))
@@ -68,5 +68,5 @@ async def theme_func(_, message):
     else:
         theme = _note["theme"]
     await message.reply_text(
-        f"**🍒︙ {MUSIC_BOT_NAME} ثيم الصور المصغرة**\n\n**🍒︙ الثيم الحالي:-** {theme}\n\n**🍒︙ السمات المتاحة:-** {' | '.join(themes2)} \n\n🍒︙الاستخدام  /settheme لتغيير الثيم."
+        f"**🥥︙ {MUSIC_BOT_NAME} ثيم الصور المصغرة**\n\n**🥥︙ الثيم الحالي:-** {theme}\n\n**🥥︙ السمات المتاحة:-** {' | '.join(themes2)} \n\n🥥︙الاستخدام  /settheme لتغيير الثيم."
     )

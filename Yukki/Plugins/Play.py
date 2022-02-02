@@ -46,7 +46,7 @@ async def play(_, message: Message):
         db_mem[message.chat.id] = {}
     if message.sender_chat:
         return await message.reply_text(
-            "🍒︙انت ادمن مخفي برجاء اعادة حسابك الي ظاهر ."
+            "🥥︙انت ادمن مخفي برجاء اعادة حسابك الي ظاهر ."
         )
     audio = (
         (message.reply_to_message.audio or message.reply_to_message.voice)
@@ -61,13 +61,13 @@ async def play(_, message: Message):
     url = get_url(message)
     if audio:
         mystic = await message.reply_text(
-            "🍒︙جارٍ معالجة الصوت ... يرجى الانتظار!"
+            "🥥︙جارٍ معالجة الصوت ... يرجى الانتظار!"
         )
         try:
             read = db_mem[message.chat.id]["live_check"]
             if read:
                 return await mystic.edit(
-                    "🍒︙تشغيل البث المباشر ... أوقفه لتشغيل الموسيقى"
+                    "🥥︙تشغيل البث المباشر ... أوقفه لتشغيل الموسيقى"
                 )
             else:
                 pass
@@ -75,13 +75,13 @@ async def play(_, message: Message):
             pass
         if audio.file_size > 1073741824:
             return await mystic.edit_text(
-                "🍒︙ يجب أن يكون حجم ملف الصوت أقل من 150 ميغا بايت"
+                "🥥︙ يجب أن يكون حجم ملف الصوت أقل من 150 ميغا بايت"
             )
         duration_min = seconds_to_min(audio.duration)
         duration_sec = audio.duration
         if (audio.duration) > DURATION_LIMIT:
             return await mystic.edit_text(
-                f"**🍒︙تجاوز حجم المده**\n\n**🍒︙المده المصرح بها **{DURATION_LIMIT_MIN}دقيقه\n**🍒︙الم\ه المستقبله** {duration_min} دقيقه"
+                f"**🥥︙تجاوز حجم المده**\n\n**🥥︙المده المصرح بها **{DURATION_LIMIT_MIN}دقيقه\n**🥥︙الم\ه المستقبله** {duration_min} دقيقه"
             )
         file_name = (
             audio.file_unique_id
@@ -111,7 +111,7 @@ async def play(_, message: Message):
         limit = await get_video_limit(141414)
         if not limit:
             return await message.reply_text(
-                "**🍒︙لا حدود محددة لمكالمات الفيديو**\n\n🍒︙قم بتعيين حد أقصى لعدد مكالمات الفيديو المسموح بها على البوت بواسطة /set_video_limit [للمطورين فقط]"
+                "**🥥︙لا حدود محددة لمكالمات الفيديو**\n\n🥥︙قم بتعيين حد أقصى لعدد مكالمات الفيديو المسموح بها على البوت بواسطة /set_video_limit [للمطورين فقط]"
             )
         count = len(await get_active_video_chats())
         if int(count) == int(limit):
@@ -119,16 +119,16 @@ async def play(_, message: Message):
                 pass
             else:
                 return await message.reply_text(
-                    "🍒︙ آسف! يسمح البوت بعدد محدود فقط من مكالمات الفيديو بسبب مشاكل التحميل الزائد لوحدة المعالجة المركزية. العديد من الدردشات الأخرى تستخدم مكالمات الفيديو في الوقت الحالي. حاول التبديل إلى الصوت أو حاول مرة أخرى لاحقًا"
+                    "🥥︙ آسف! يسمح البوت بعدد محدود فقط من مكالمات الفيديو بسبب مشاكل التحميل الزائد لوحدة المعالجة المركزية. العديد من الدردشات الأخرى تستخدم مكالمات الفيديو في الوقت الحالي. حاول التبديل إلى الصوت أو حاول مرة أخرى لاحقًا"
                 )
         mystic = await message.reply_text(
-            "🍒︙جارٍ معالجة الفيديو ... يرجى الانتظار!"
+            "🥥︙جارٍ معالجة الفيديو ... يرجى الانتظار!"
         )
         try:
             read = db_mem[message.chat.id]["live_check"]
             if read:
                 return await mystic.edit(
-                    "🍒︙تشغيل البث المباشر ... أوقفه لتشغيل الموسيقى"
+                    "🥥︙تشغيل البث المباشر ... أوقفه لتشغيل الموسيقى"
                 )
             else:
                 pass
@@ -138,11 +138,11 @@ async def play(_, message: Message):
         return await start_stream_video(
             message,
             file,
-            "🍒︙فيديو معين عبر تيلجرام",
+            "🥥︙فيديو معين عبر تيلجرام",
             mystic,
         )
     elif url:
-        mystic = await message.reply_text("🍒︙جاري المعالجه برجاء الانتظار")
+        mystic = await message.reply_text("🥥︙جاري المعالجه برجاء الانتظار")
         if not message.reply_to_message:
             query = message.text.split(None, 1)[1]
         else:
@@ -158,7 +158,7 @@ async def play(_, message: Message):
         buttons = url_markup2(videoid, duration_min, message.from_user.id)
         return await message.reply_photo(
             photo=thumb,
-            caption=f"🍒︙العنوان **{title}\n\n🍒︙المده** {duration_min} دقيقه\n\n__[جلب معلومات اضافيه](https://t.me/{BOT_USERNAME}?start=info_{videoid})__",
+            caption=f"🥥︙العنوان **{title}\n\n🥥︙المده** {duration_min} دقيقه\n\n__[جلب معلومات اضافيه](https://t.me/{BOT_USERNAME}?start=info_{videoid})__",
             reply_markup=InlineKeyboardMarkup(buttons),
         )
     else:
@@ -169,12 +169,12 @@ async def play(_, message: Message):
             await message.reply_photo(
                 photo="Utils/Playlist.jpg",
                 caption=(
-                    "**🍒︙الاستخدام** /play [اسم الموسيقى أو رابط Youtube أو الرد على مقطع صوتي]\n\n🍒︙إذا كنت تريد أن تشغل قوائم التشغيل! حدد واحد من أدناه."
+                    "**🥥︙الاستخدام** /play [اسم الموسيقى أو رابط Youtube أو الرد على مقطع صوتي]\n\n🥥︙إذا كنت تريد أن تشغل قوائم التشغيل! حدد واحد من أدناه."
                 ),
                 reply_markup=InlineKeyboardMarkup(buttons),
             )
             return
-        mystic = await message.reply_text("🍒︙جاري البحث...")
+        mystic = await message.reply_text("🥥︙جاري البحث...")
         query = message.text.split(None, 1)[1]
         (
             title,
@@ -189,7 +189,7 @@ async def play(_, message: Message):
         )
         return await message.reply_photo(
             photo=thumb,
-            caption=f"🍒︙العنوان **{title}\n\n🍒︙المده** {duration_min} دقيقه\n\n__[جلب معلومات اضافيه](https://t.me/{BOT_USERNAME}?start=info_{videoid})__",
+            caption=f"🥥︙العنوان **{title}\n\n🥥︙المده** {duration_min} دقيقه\n\n__[جلب معلومات اضافيه](https://t.me/{BOT_USERNAME}?start=info_{videoid})__",
             reply_markup=InlineKeyboardMarkup(buttons),
         )
 
@@ -202,7 +202,7 @@ async def Music_Stream(_, CallbackQuery):
         read1 = db_mem[CallbackQuery.message.chat.id]["live_check"]
         if read1:
             return await CallbackQuery.answer(
-                "🍒︙تشغيل البث المباشر ... أوقفه لتشغيل الموسيقى",
+                "🥥︙تشغيل البث المباشر ... أوقفه لتشغيل الموسيقى",
                 show_alert=True,
             )
         else:
@@ -217,22 +217,22 @@ async def Music_Stream(_, CallbackQuery):
     if str(duration) == "None":
         buttons = livestream_markup("720", videoid, duration, user_id)
         return await CallbackQuery.edit_message_text(
-            "**🍒︙تم الكشف عن البث المباشر**\n\n🍒︙ تريد أن تشغل البث المباشر؟ سيؤدي هذا إلى إيقاف تشغيل الموسيقى الحالية (إن وجدت) وسيبدأ بث الفيديو المباشر.",
+            "**🥥︙تم الكشف عن البث المباشر**\n\n🥥︙ تريد أن تشغل البث المباشر؟ سيؤدي هذا إلى إيقاف تشغيل الموسيقى الحالية (إن وجدت) وسيبدأ بث الفيديو المباشر.",
             reply_markup=InlineKeyboardMarkup(buttons),
         )
     if CallbackQuery.from_user.id != int(user_id):
         return await CallbackQuery.answer(
-            "🍒︙هذا الامر ليس لك ابحث عن اغنيتك", show_alert=True
+            "🥥︙هذا الامر ليس لك ابحث عن اغنيتك", show_alert=True
         )
     await CallbackQuery.message.delete()
     title, duration_min, duration_sec, thumbnail = get_yt_info_id(videoid)
     if duration_sec > DURATION_LIMIT:
         return await CallbackQuery.message.reply_text(
-            f"**🍒︙تم تجاوز حد المدة**\n\n**🍒︙المده المسموح بها **{DURATION_LIMIT_MIN} دقيقه\n**🍒︙المده المستلمه** {duration_min} دقيقه"
+            f"**🥥︙تم تجاوز حد المدة**\n\n**🥥︙المده المسموح بها **{DURATION_LIMIT_MIN} دقيقه\n**🥥︙المده المستلمه** {duration_min} دقيقه"
         )
-    await CallbackQuery.answer(f"🍒︙معالجه {title[:20]}", show_alert=True)
+    await CallbackQuery.answer(f"🥥︙معالجه {title[:20]}", show_alert=True)
     mystic = await CallbackQuery.message.reply_text(
-        f"**🍒︙ بوت {MUSIC_BOT_NAME} المحمل**\n\n**🍒︙العنوان** {title[:50]}\n\n0% ▓▓▓▓▓▓▓▓▓▓▓▓ 100%"
+        f"**🥥︙ بوت {MUSIC_BOT_NAME} المحمل**\n\n**🥥︙العنوان** {title[:50]}\n\n0% ▓▓▓▓▓▓▓▓▓▓▓▓ 100%"
     )
     downloaded_file = await loop.run_in_executor(
         None, download, videoid, mystic, title
@@ -262,15 +262,15 @@ async def search_query_more(_, CallbackQuery):
     query, user_id = callback_request.split("|")
     if CallbackQuery.from_user.id != int(user_id):
         return await CallbackQuery.answer(
-            "🍒︙هذا الامر ليس لك ابحث عن اغنيتك",
+            "🥥︙هذا الامر ليس لك ابحث عن اغنيتك",
             show_alert=True,
         )
-    await CallbackQuery.answer("🍒︙مزيد من اللنتائج")
+    await CallbackQuery.answer("🥥︙مزيد من اللنتائج")
     results = YoutubeSearch(query, max_results=5).to_dict()
     med = InputMediaPhoto(
         media="Utils/Result.JPEG",
         caption=(
-            f"1️⃣<b>{results[0]['title']}</b>\n  ┗  🍒 <u>__[🍒︙ جلب معلومات اضافيه](https://t.me/{BOT_USERNAME}?start=info_{results[0]['id']})__</u>\n\n2️⃣<b>{results[1]['title']}</b>\n  ┗  🍒 <u>__[🍒︙ جلب معلومات اضافيه](https://t.me/{BOT_USERNAME}?start=info_{results[1]['id']})__</u>\n\n3️⃣<b>{results[2]['title']}</b>\n  ┗  🍒 <u>__[🍒︙ جلب معلومات اضافيه](https://t.me/{BOT_USERNAME}?start=info_{results[2]['id']})__</u>\n\n4️⃣<b>{results[3]['title']}</b>\n  ┗  🍒 <u>__[🍒︙ جلب معلومات اضافيه](https://t.me/{BOT_USERNAME}?start=info_{results[3]['id']})__</u>\n\n5️⃣<b>{results[4]['title']}</b>\n  ┗  🍒 <u>__[🍒︙ جلب معلومات اضافيه](https://t.me/{BOT_USERNAME}?start=info_{results[4]['id']})__</u>"
+            f"1️⃣<b>{results[0]['title']}</b>\n  ┗  🥥 <u>__[🥥︙ جلب معلومات اضافيه](https://t.me/{BOT_USERNAME}?start=info_{results[0]['id']})__</u>\n\n2️⃣<b>{results[1]['title']}</b>\n  ┗  🥥 <u>__[🥥︙ جلب معلومات اضافيه](https://t.me/{BOT_USERNAME}?start=info_{results[1]['id']})__</u>\n\n3️⃣<b>{results[2]['title']}</b>\n  ┗  🥥 <u>__[🥥︙ جلب معلومات اضافيه](https://t.me/{BOT_USERNAME}?start=info_{results[2]['id']})__</u>\n\n4️⃣<b>{results[3]['title']}</b>\n  ┗  🥥 <u>__[🥥︙ جلب معلومات اضافيه](https://t.me/{BOT_USERNAME}?start=info_{results[3]['id']})__</u>\n\n5️⃣<b>{results[4]['title']}</b>\n  ┗  🥥 <u>__[🥥︙ جلب معلومات اضافيه](https://t.me/{BOT_USERNAME}?start=info_{results[4]['id']})__</u>"
         ),
     )
     buttons = search_markup(
@@ -300,7 +300,7 @@ async def popat(_, CallbackQuery):
     i, query, user_id = callback_request.split("|")
     if CallbackQuery.from_user.id != int(user_id):
         return await CallbackQuery.answer(
-            "🍒︙هذا ليس بحثك ", show_alert=True
+            "🥥︙هذا ليس بحثك ", show_alert=True
         )
     results = YoutubeSearch(query, max_results=10).to_dict()
     if int(i) == 1:
@@ -319,7 +319,7 @@ async def popat(_, CallbackQuery):
             query,
         )
         await CallbackQuery.edit_message_text(
-            f"6️⃣<b>{results[5]['title']}</b>\n  ┗  🍒 <u>__[🍒︙ جلب معلومات اضافيه](https://t.me/{BOT_USERNAME}?start=info_{results[5]['id']})__</u>\n\n7️⃣<b>{results[6]['title']}</b>\n  ┗  🍒 <u>__[🍒︙ جلب معلومات اضافيه](https://t.me/{BOT_USERNAME}?start=info_{results[6]['id']})__</u>\n\n8️⃣<b>{results[7]['title']}</b>\n  ┗  🍒 <u>__[🍒︙ جلب معلومات اضافيه](https://t.me/{BOT_USERNAME}?start=info_{results[7]['id']})__</u>\n\n9️⃣<b>{results[8]['title']}</b>\n  ┗  🍒 <u>__[🍒︙ جلب معلومات اضافيه](https://t.me/{BOT_USERNAME}?start=info_{results[8]['id']})__</u>\n\n🔟<b>{results[9]['title']}</b>\n  ┗  🍒 <u>__[🍒︙ جلب معلومات اضافيه](https://t.me/{BOT_USERNAME}?start=info_{results[9]['id']})__</u>",
+            f"6️⃣<b>{results[5]['title']}</b>\n  ┗  🥥 <u>__[🥥︙ جلب معلومات اضافيه](https://t.me/{BOT_USERNAME}?start=info_{results[5]['id']})__</u>\n\n7️⃣<b>{results[6]['title']}</b>\n  ┗  🥥 <u>__[🥥︙ جلب معلومات اضافيه](https://t.me/{BOT_USERNAME}?start=info_{results[6]['id']})__</u>\n\n8️⃣<b>{results[7]['title']}</b>\n  ┗  🥥 <u>__[🥥︙ جلب معلومات اضافيه](https://t.me/{BOT_USERNAME}?start=info_{results[7]['id']})__</u>\n\n9️⃣<b>{results[8]['title']}</b>\n  ┗  🥥 <u>__[🥥︙ جلب معلومات اضافيه](https://t.me/{BOT_USERNAME}?start=info_{results[8]['id']})__</u>\n\n🔟<b>{results[9]['title']}</b>\n  ┗  🥥 <u>__[🥥︙ جلب معلومات اضافيه](https://t.me/{BOT_USERNAME}?start=info_{results[9]['id']})__</u>",
             reply_markup=InlineKeyboardMarkup(buttons),
         )
         disable_web_page_preview = True
@@ -340,7 +340,7 @@ async def popat(_, CallbackQuery):
             query,
         )
         await CallbackQuery.edit_message_text(
-            f"1️⃣<b>{results[0]['title']}</b>\n  ┗  🍒 <u>__[🍒︙ جلب معلومات اضافيه](https://t.me/{BOT_USERNAME}?start=info_{results[0]['id']})__</u>\n\n2️⃣<b>{results[1]['title']}</b>\n  ┗  🍒 <u>__[🍒︙ جلب معلومات اضافيه](https://t.me/{BOT_USERNAME}?start=info_{results[1]['id']})__</u>\n\n3️⃣<b>{results[2]['title']}</b>\n  ┗  🍒 <u>__[🍒︙ جلب معلومات اضافيه](https://t.me/{BOT_USERNAME}?start=info_{results[2]['id']})__</u>\n\n4️⃣<b>{results[3]['title']}</b>\n  ┗  🍒 <u>__[🍒︙ جلب معلومات اضافيه](https://t.me/{BOT_USERNAME}?start=info_{results[3]['id']})__</u>\n\n5️⃣<b>{results[4]['title']}</b>\n  ┗  🍒 <u>__[🍒︙ جلب معلومات اضافيه](https://t.me/{BOT_USERNAME}?start=info_{results[4]['id']})__</u>",
+            f"1️⃣<b>{results[0]['title']}</b>\n  ┗  🥥 <u>__[🥥︙ جلب معلومات اضافيه](https://t.me/{BOT_USERNAME}?start=info_{results[0]['id']})__</u>\n\n2️⃣<b>{results[1]['title']}</b>\n  ┗  🥥 <u>__[🥥︙ جلب معلومات اضافيه](https://t.me/{BOT_USERNAME}?start=info_{results[1]['id']})__</u>\n\n3️⃣<b>{results[2]['title']}</b>\n  ┗  🥥 <u>__[🥥︙ جلب معلومات اضافيه](https://t.me/{BOT_USERNAME}?start=info_{results[2]['id']})__</u>\n\n4️⃣<b>{results[3]['title']}</b>\n  ┗  🥥 <u>__[🥥︙ جلب معلومات اضافيه](https://t.me/{BOT_USERNAME}?start=info_{results[3]['id']})__</u>\n\n5️⃣<b>{results[4]['title']}</b>\n  ┗  🥥 <u>__[🥥︙ جلب معلومات اضافيه](https://t.me/{BOT_USERNAME}?start=info_{results[4]['id']})__</u>",
             reply_markup=InlineKeyboardMarkup(buttons),
         )
         disable_web_page_preview = True
@@ -354,7 +354,7 @@ async def slider_query_results(_, CallbackQuery):
     what, type, query, user_id = callback_request.split("|")
     if CallbackQuery.from_user.id != int(user_id):
         return await CallbackQuery.answer(
-            "🍒︙ابحث في الموسيقى الخاصة بك. لا يسمح لك باستخدام هذا الزر.",
+            "🥥︙ابحث في الموسيقى الخاصة بك. لا يسمح لك باستخدام هذا الزر.",
             show_alert=True,
         )
     what = str(what)
@@ -364,7 +364,7 @@ async def slider_query_results(_, CallbackQuery):
             query_type = 0
         else:
             query_type = int(type + 1)
-        await CallbackQuery.answer("🍒︙ الحصول على النتيجة التالية", show_alert=True)
+        await CallbackQuery.answer("🥥︙ الحصول على النتيجة التالية", show_alert=True)
         (
             title,
             duration_min,
@@ -377,7 +377,7 @@ async def slider_query_results(_, CallbackQuery):
         )
         med = InputMediaPhoto(
             media=thumb,
-            caption=f"🍒︙العنوان **{title}\n\n🍒︙المده** {duration_min} دقيقه\n\n🍒︙ __[جلب معلومات اضافيه](https://t.me/{BOT_USERNAME}?start=info_{videoid})__",
+            caption=f"🥥︙العنوان **{title}\n\n🥥︙المده** {duration_min} دقيقه\n\n🥥︙ __[جلب معلومات اضافيه](https://t.me/{BOT_USERNAME}?start=info_{videoid})__",
         )
         return await CallbackQuery.edit_message_media(
             media=med, reply_markup=InlineKeyboardMarkup(buttons)
@@ -387,7 +387,7 @@ async def slider_query_results(_, CallbackQuery):
             query_type = 9
         else:
             query_type = int(type - 1)
-        await CallbackQuery.answer("🍒︙جلب النتائج السابقه", show_alert=True)
+        await CallbackQuery.answer("🥥︙جلب النتائج السابقه", show_alert=True)
         (
             title,
             duration_min,
@@ -400,7 +400,7 @@ async def slider_query_results(_, CallbackQuery):
         )
         med = InputMediaPhoto(
             media=thumb,
-            caption=f"🍒︙العنوان **{title}\n\n🍒︙المده** {duration_min} دقيقه\n\n🍒︙__[جلب معلومات اضافيه](https://t.me/{BOT_USERNAME}?start=info_{videoid})__",
+            caption=f"🥥︙العنوان **{title}\n\n🥥︙المده** {duration_min} دقيقه\n\n🥥︙__[جلب معلومات اضافيه](https://t.me/{BOT_USERNAME}?start=info_{videoid})__",
         )
         return await CallbackQuery.edit_message_media(
             media=med, reply_markup=InlineKeyboardMarkup(buttons)

@@ -19,19 +19,19 @@ __MODULE__ = "قائمة التشغيل"
 __HELP__ = """
 
 
-🍒︙ /playplaylist 
+🥥︙ /playplaylist 
 - ابدأ تشغيل قائمة التشغيل المحفوظة.
 
 
-🍒︙ /playlist 
+🥥︙ /playlist 
 - تحقق من قائمة التشغيل المحفوظة على الخوادم.
 
 
-🍒︙ /delmyplaylist
+🥥︙ /delmyplaylist
 - احذف أي موسيقى محفوظة في قائمة التشغيل الخاصة بك
 
 
-🍒︙ /delgroupplaylist
+🥥︙ /delgroupplaylist
 - احذف أي موسيقى محفوظة في قائمة التشغيل الخاصة بمجموعتك [يتطلب حقوق المسؤول.]
 """
 
@@ -56,14 +56,14 @@ async def play_playlist_cmd(_, message):
                     third_name = user.first_name
                 except:
                     userid = user
-                    third_name = "🍒︙حساب محذوف"
+                    third_name = "🥥︙حساب محذوف"
             except:
                 try:
                     user = await app.get_users(user)
                     userid = user.id
                     third_name = user.first_name
                 except Exception as e:
-                    return await message.reply_text("🍒︙لم يتم ايجاد العضو")
+                    return await message.reply_text("🥥︙لم يتم ايجاد العضو")
             user_id = message.from_user.id
             user_name = message.from_user.first_name
             buttons = third_playlist_markup(
@@ -72,7 +72,7 @@ async def play_playlist_cmd(_, message):
             hmo = await message.reply_photo(
                 photo=thumb,
                 caption=(
-                    f"**🍒︙ بوت {MUSIC_BOT_NAME} ميزة قائمة التشغيل**\n🍒︙ حدد قائمة التشغيل التي تريد تشغيلها!.\n\n🍒︙يمكنك أيضًا تشغيل قائمة تشغيل خاصة بشخص آخر\n🍒︙ /playplaylist [المعرف]\n🍒︙ /playplaylist [الايدي](اذا كان العضو حساب محذوف)\n🍒︙ /playplaylist [بالرد]"
+                    f"**🥥︙ بوت {MUSIC_BOT_NAME} ميزة قائمة التشغيل**\n🥥︙ حدد قائمة التشغيل التي تريد تشغيلها!.\n\n🥥︙يمكنك أيضًا تشغيل قائمة تشغيل خاصة بشخص آخر\n🥥︙ /playplaylist [المعرف]\n🥥︙ /playplaylist [الايدي](اذا كان العضو حساب محذوف)\n🥥︙ /playplaylist [بالرد]"
                 ),
                 reply_markup=InlineKeyboardMarkup(buttons),
             )
@@ -84,7 +84,7 @@ async def play_playlist_cmd(_, message):
             await message.reply_photo(
                 photo=thumb,
                 caption=(
-                   f"**🍒︙ بوت {MUSIC_BOT_NAME} ميزة قائمة التشغيل**\n🍒︙ حدد قائمة التشغيل التي تريد تشغيلها!.\n\n🍒︙يمكنك أيضًا تشغيل قائمة تشغيل خاصة بشخص آخر\n🍒︙ /playplaylist [المعرف]\n🍒︙ /playplaylist [الايدي](اذا كان العضو حساب محذوف)\n🍒︙ /playplaylist [بالرد]"
+                   f"**🥥︙ بوت {MUSIC_BOT_NAME} ميزة قائمة التشغيل**\n🥥︙ حدد قائمة التشغيل التي تريد تشغيلها!.\n\n🥥︙يمكنك أيضًا تشغيل قائمة تشغيل خاصة بشخص آخر\n🥥︙ /playplaylist [المعرف]\n🥥︙ /playplaylist [الايدي](اذا كان العضو حساب محذوف)\n🥥︙ /playplaylist [بالرد]"
                 ),
                 reply_markup=InlineKeyboardMarkup(buttons),
             )
@@ -100,7 +100,7 @@ async def play_playlist_cmd(_, message):
         hmo = await message.reply_photo(
             photo=thumb,
             caption=(
-                f"**🍒︙ بوت {MUSIC_BOT_NAME} ميزة قائمة التشغيل**\n🍒︙ حدد قائمة التشغيل التي تريد تشغيلها!.\n\n🍒︙يمكنك أيضًا تشغيل قائمة تشغيل خاصة بشخص آخر\n🍒︙ /playplaylist [المعرف]\n🍒︙ /playplaylist [الايدي](اذا كان العضو حساب محذوف)\n🍒︙ /playplaylist [بالرد]"
+                f"**🥥︙ بوت {MUSIC_BOT_NAME} ميزة قائمة التشغيل**\n🥥︙ حدد قائمة التشغيل التي تريد تشغيلها!.\n\n🥥︙يمكنك أيضًا تشغيل قائمة تشغيل خاصة بشخص آخر\n🥥︙ /playplaylist [المعرف]\n🥥︙ /playplaylist [الايدي](اذا كان العضو حساب محذوف)\n🥥︙ /playplaylist [بالرد]"
             ),
             reply_markup=InlineKeyboardMarkup(buttons),
         )
@@ -119,7 +119,7 @@ async def playlist(_, message):
     await message.reply_photo(
         photo=thumb,
         caption=(
-            f"🍒︙ بوت **{MUSIC_BOT_NAME} ميزه قائمه التشغيل **\n\n🍒︙ حدد قائمة التشغيل التي تريدها**"
+            f"🥥︙ بوت **{MUSIC_BOT_NAME} ميزه قائمه التشغيل **\n\n🥥︙ حدد قائمة التشغيل التي تريدها**"
         ),
         reply_markup=InlineKeyboardMarkup(buttons),
     )
@@ -174,7 +174,7 @@ options_Genre = [
 
 @app.on_message(filters.command("delmyplaylist") & filters.group)
 async def del_cmd(_, message):
-    usage = f"🍒︙الاستحدام\n\n🍒︙ /delmyplaylist [النوع] [الأرقام بين 1-30] (لحذف موسيقى معينة في قائمة التشغيل)\n\nاو\n\n🍒︙ /delmyplaylist [النوع] الكل (لحذف قائمة التشغيل بأكملها)\n\n**🍒︙ الأنواع**\n{' | '.join(options_Genre)}"
+    usage = f"🥥︙الاستحدام\n\n🥥︙ /delmyplaylist [النوع] [الأرقام بين 1-30] (لحذف موسيقى معينة في قائمة التشغيل)\n\nاو\n\n🥥︙ /delmyplaylist [النوع] الكل (لحذف قائمة التشغيل بأكملها)\n\n**🥥︙ الأنواع**\n{' | '.join(options_Genre)}"
     if len(message.command) < 3:
         return await message.reply_text(usage)
     genre = message.text.split(None, 2)[1].strip()
@@ -188,14 +188,14 @@ async def del_cmd(_, message):
     if str(count) == "all":
         buttons = delete_playlist_markuup("Personal", genre)
         return await message.reply_text(
-               f"🍒︙تأكيد!!\n🍒︙ هل أنت متأكد من أنك تريد حذف قائمة تشغيل المجموعة {genre} ?",
+               f"🥥︙تأكيد!!\n🥥︙ هل أنت متأكد من أنك تريد حذف قائمة تشغيل المجموعة {genre} ?",
             reply_markup=InlineKeyboardMarkup(buttons),
         )
     else:
         _playlist = await get_playlist_names(message.from_user.id, genre)
     if not _playlist:
         await message.reply_text(
-              f"🍒︙ليس لديك قائمة تشغيل {MUSIC_BOT_NAME}في السيرفرات"
+              f"🥥︙ليس لديك قائمة تشغيل {MUSIC_BOT_NAME}في السيرفرات"
         )
     else:
         titlex = []
@@ -210,19 +210,19 @@ async def del_cmd(_, message):
                 )
                 if deleted:
                     return await message.reply_text(
-                        f"**🍒︙ لم اجد {count} موسيقي من هذا النوع في قوائم التشغيل**"
+                        f"**🥥︙ لم اجد {count} موسيقي من هذا النوع في قوائم التشغيل**"
                     )
                 else:
                     return await message.reply_text(
-                        f"**🍒︙ لا توجد مثل هذه الموسيقى المحفوظة في قائمة التشغيل.**"
+                        f"**🥥︙ لا توجد مثل هذه الموسيقى المحفوظة في قائمة التشغيل.**"
                     )
-        await message.reply_text("🍒︙ ليس لديك مثل هذه الموسيقى في قائمة التشغيل.")
+        await message.reply_text("🥥︙ ليس لديك مثل هذه الموسيقى في قائمة التشغيل.")
 
 
 @app.on_message(filters.command("delgroupplaylist") & filters.group)
 @AdminRightsCheck
 async def delgroupplaylist(_, message):
-    usage = f"🍒︙الاستخدام\n\n🍒︙ /delgroupplaylist [النوع] [الأرقام بين 1-30] (لحذف موسيقى معينة في قائمة التشغيل)\n\nor\n\n🍒︙ /delgroupplaylist [النوع] الكل (لحذف قائمة التشغيل بأكملها)\n\n**🍒︙الأنواع**\n{' | '.join(options_Genre)}"
+    usage = f"🥥︙الاستخدام\n\n🥥︙ /delgroupplaylist [النوع] [الأرقام بين 1-30] (لحذف موسيقى معينة في قائمة التشغيل)\n\nor\n\n🥥︙ /delgroupplaylist [النوع] الكل (لحذف قائمة التشغيل بأكملها)\n\n**🥥︙الأنواع**\n{' | '.join(options_Genre)}"
     if len(message.command) < 3:
         return await message.reply_text(usage)
     genre = message.text.split(None, 2)[1].strip()
@@ -236,14 +236,14 @@ async def delgroupplaylist(_, message):
     if str(count) == "all":
         buttons = delete_playlist_markuup("Group", genre)
         return await message.reply_text(
-            f"🍒︙تأكيد!!\n🍒︙ هل أنت متأكد من أنك تريد حذف قائمة تشغيل المجموعة {genre} ?",
+            f"🥥︙تأكيد!!\n🥥︙ هل أنت متأكد من أنك تريد حذف قائمة تشغيل المجموعة {genre} ?",
             reply_markup=InlineKeyboardMarkup(buttons),
         )
     else:
         _playlist = await get_playlist_names(message.chat.id, genre)
     if not _playlist:
         await message.reply_text(
-            f"🍒︙ليس لديك قائمة تشغيل {MUSIC_BOT_NAME}في السيرفرات"
+            f"🥥︙ليس لديك قائمة تشغيل {MUSIC_BOT_NAME}في السيرفرات"
         )
     else:
         titlex = []
@@ -256,13 +256,13 @@ async def delgroupplaylist(_, message):
                 deleted = await delete_playlist(message.chat.id, note, genre)
                 if deleted:
                     return await message.reply_text(
-                        f"**🍒︙تم حذف ملف {count} الموسيقى في قائمة تشغيل المجموعة**"
+                        f"**🥥︙تم حذف ملف {count} الموسيقى في قائمة تشغيل المجموعة**"
                     )
                 else:
                     return await message.reply_text(
-                        f"**🍒︙ لا توجد مثل هذه الموسيقى المحفوظة في قائمة التشغيل الجماعية.**"
+                        f"**🥥︙ لا توجد مثل هذه الموسيقى المحفوظة في قائمة التشغيل الجماعية.**"
                     )
-        await message.reply_text("🍒︙ ليس لديك مثل هذه الموسيقى في قائمة التشغيل.")
+        await message.reply_text("🥥︙ ليس لديك مثل هذه الموسيقى في قائمة التشغيل.")
 
 
 @app.on_callback_query(filters.regex(pattern=r"show_genre"))
