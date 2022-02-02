@@ -11,29 +11,29 @@ def others_markup(videoid, user_id):
     buttons = [
         [
             InlineKeyboardButton(
-                text="🎸 بحث عن كلمات اغنية",
+                text="⚡️ بحث عن كلمات اغنية",
                 callback_data=f"lyrics {videoid}|{user_id}",
             )
         ],
         [
             InlineKeyboardButton(
-                text="🎸 قائمة التشغيل الخاصه بك",
+                text="⚡️ قائمة التشغيل الخاصه بك",
                 callback_data=f"your_playlist {videoid}|{user_id}",
             ),
             InlineKeyboardButton(
-                text="🎸قائمة تشغيل الجروب",
+                text="⚡️قائمة تشغيل الجروب",
                 callback_data=f"group_playlist {videoid}|{user_id}",
             ),
         ],
         [
             InlineKeyboardButton(
-                text="🎸 تحميل فيديو / صوت",
+                text="⚡️ تحميل فيديو / صوت",
                 callback_data=f"audio_video_download {videoid}|{user_id}",
             )
         ],
         [
             InlineKeyboardButton(
-                text="🎸 رجوع",
+                text="⚡️ رجوع",
                 callback_data=f"pr_go_back_timer {videoid}|{user_id}",
             ),
             InlineKeyboardButton(
@@ -49,17 +49,17 @@ def download_markup(videoid, user_id):
     buttons = [
         [
             InlineKeyboardButton(
-                text="🎸 صوت",
+                text="⚡️ صوت",
                 callback_data=f"gets audio|{videoid}|{user_id}",
             ),
             InlineKeyboardButton(
-                text="🎸 فيديو",
+                text="⚡️ فيديو",
                 callback_data=f"gets video|{videoid}|{user_id}",
             ),
         ],
         [
             InlineKeyboardButton(
-                text="🎸 رجوع", callback_data=f"goback {videoid}|{user_id}"
+                text="⚡️ رجوع", callback_data=f"goback {videoid}|{user_id}"
             ),
             InlineKeyboardButton(text="اغلاق ✗", callback_data=f"close"),
         ],
