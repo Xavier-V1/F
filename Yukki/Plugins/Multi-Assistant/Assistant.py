@@ -47,14 +47,14 @@ async def awaiting_message(client, message):
     else:
         flood[str(user_id)] = 1
     if flood[str(user_id)] > 5:
-        await message.reply_text("🍒︙ تم تحديد اسبام , تم حظر العضو")
+        await message.reply_text("🥥︙ تم تحديد اسبام , تم حظر العضو")
         await client.send_message(
             LOG_GROUP_ID,
-            f"**🍒︙ حظر اكتشاف اسبام على المساعد**\n\n🍒︙ **العضو المحظور:** {message.from_user.mention}\n🍒︙ **الايدي :** {message.from_user.id}",
+            f"**🥥︙ حظر اكتشاف اسبام على المساعد**\n\n🥥︙ **العضو المحظور:** {message.from_user.mention}\n🥥︙ **الايدي :** {message.from_user.id}",
         )
         return await client.block_user(user_id)
     await message.reply_text(
-        f"🍒︙ مرحبا يا صديقي انا الحساب المساعد لبوت {MUSIC_BOT_NAME} \n\n🍒︙ برجاء عدم إرسال رسائل هنا حتي لا يتم حظرك\n🍒︙للمساعدة اضغط هنا :- @{BOT_USERNAME}"
+        f"🥥︙ مرحبا يا صديقي انا الحساب المساعد لبوت {MUSIC_BOT_NAME} \n\n🥥︙ برجاء عدم إرسال رسائل هنا حتي لا يتم حظرك\n🥥︙للمساعدة اضغط هنا :- @{BOT_USERNAME}"
     )
 
 
@@ -68,13 +68,13 @@ async def awaiting_message(client, message):
 async def pm_approve(client, message):
     if not message.reply_to_message:
         return await eor(
-            message, text="🍒︙ قم بالرد علي الرسالة للشخص حتي يتم قبوله"
+            message, text="🥥︙ قم بالرد علي الرسالة للشخص حتي يتم قبوله"
         )
     user_id = message.reply_to_message.from_user.id
     if await is_pmpermit_approved(user_id):
-        return await eor(message, text="🍒︙ العضو مقبول بالفعل")
+        return await eor(message, text="🥥︙ العضو مقبول بالفعل")
     await approve_pmpermit(user_id)
-    await eor(message, text="🍒︙ تم قبول العضو")
+    await eor(message, text="🥥︙ تم قبول العضو")
 
 
 @Client.on_message(
@@ -87,11 +87,11 @@ async def pm_approve(client, message):
 async def pm_disapprove(client, message):
     if not message.reply_to_message:
         return await eor(
-            message, text="🍒︙ قم بالرد علي رسالة شخص للرفض"
+            message, text="🥥︙ قم بالرد علي رسالة شخص للرفض"
         )
     user_id = message.reply_to_message.from_user.id
     if not await is_pmpermit_approved(user_id):
-        await eor(message, text="🍒︙ العضو بالفعل مرفوض")
+        await eor(message, text="🥥︙ العضو بالفعل مرفوض")
         async for m in client.iter_history(user_id, limit=6):
             if m.reply_markup:
                 try:
@@ -100,7 +100,7 @@ async def pm_disapprove(client, message):
                     pass
         return
     await disapprove_pmpermit(user_id)
-    await eor(message, text="🍒︙ تم رفض العضو")
+    await eor(message, text="🥥︙ تم رفض العضو")
 
 
 @Client.on_message(
@@ -112,9 +112,9 @@ async def pm_disapprove(client, message):
 )
 async def block_user_func(client, message):
     if not message.reply_to_message:
-        return await eor(message, text="🍒︙ قم بالرد علي رسالة الشخص للحظر")
+        return await eor(message, text="🥥︙ قم بالرد علي رسالة الشخص للحظر")
     user_id = message.reply_to_message.from_user.id
-    await eor(message, text="🍒︙ تم الحظر بنجاح")
+    await eor(message, text="🥥︙ تم الحظر بنجاح")
     await client.block_user(user_id)
 
 
@@ -128,11 +128,11 @@ async def block_user_func(client, message):
 async def unblock_user_func(client, message):
     if not message.reply_to_message:
         return await eor(
-            message, text="🍒︙ قم بالرد علي رساله الشخص لالغاء حظره"
+            message, text="🥥︙ قم بالرد علي رساله الشخص لالغاء حظره"
         )
     user_id = message.reply_to_message.from_user.id
     await client.unblock_user(user_id)
-    await eor(message, text="🍒︙ تم إلغاء الحظر بنجاح")
+    await eor(message, text="🥥︙ تم إلغاء الحظر بنجاح")
 
 
 @Client.on_message(
@@ -144,11 +144,11 @@ async def unblock_user_func(client, message):
 )
 async def set_pfp(client, message):
     if not message.reply_to_message or not message.reply_to_message.photo:
-        return await eor(message, text="🍒︙ قم بالرد علي صورة")
+        return await eor(message, text="🥥︙ قم بالرد علي صورة")
     photo = await message.reply_to_message.download()
     try:
         await client.set_profile_photo(photo=photo)
-        await eor(message, text="🍒︙ تم تغيير بنجاح")
+        await eor(message, text="🥥︙ تم تغيير بنجاح")
     except Exception as e:
         await eor(message, text=e)
 
@@ -162,16 +162,16 @@ async def set_pfp(client, message):
 )
 async def set_bio(client, message):
     if len(message.command) == 1:
-        return await eor(message, text="🍒︙ ارسل النص لوضعه في البايو")
+        return await eor(message, text="🥥︙ ارسل النص لوضعه في البايو")
     elif len(message.command) > 1:
         bio = message.text.split(None, 1)[1]
         try:
             await client.update_profile(bio=bio)
-            await eor(message, text="🍒︙ تم تغيير البايو")
+            await eor(message, text="🥥︙ تم تغيير البايو")
         except Exception as e:
             await eor(message, text=e)
     else:
-        return await eor(message, text="🍒︙برجاء ارسل النص لوضعه في البايو")
+        return await eor(message, text="🥥︙برجاء ارسل النص لوضعه في البايو")
 
 
 async def eor(msg: Message, **kwargs):
