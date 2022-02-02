@@ -22,14 +22,14 @@ def logging(mystic):
                 except:
                     what = "Command"
             logger_text = f"""
-__**🍒︙ مجموعة جديدة {what}**__
+__**🥥︙ مجموعة جديدة {what}**__
 
-**🍒︙ الدردشة** {message.chat.title} [`{message.chat.id}`]
-**🍒︙ العضو** {message.from_user.mention}
-**🍒︙ المعرف** @{message.from_user.username}
-**🍒︙ الايدي** `{message.from_user.id}`
-**🍒︙اللينك** {chatusername}
-**🍒︙ الرقم** {message.text}"""
+**🥥︙ الدردشة** {message.chat.title} [`{message.chat.id}`]
+**🥥︙ العضو** {message.from_user.mention}
+**🥥︙ المعرف** @{message.from_user.username}
+**🥥︙ الايدي** `{message.from_user.id}`
+**🥥︙اللينك** {chatusername}
+**🥥︙ الرقم** {message.text}"""
             if LOG_CLIENT != "None":
                 await LOG_CLIENT.send_message(
                     LOG_GROUP_ID,

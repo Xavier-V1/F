@@ -19,7 +19,7 @@ async def unban_assistant_(_, CallbackQuery):
     a = await app.get_chat_member(CallbackQuery.message.chat.id, BOT_ID)
     if not a.can_restrict_members:
         return await CallbackQuery.answer(
-            "🍒︙ ليس لدي إذن حظر / إلغاء حظر المستخدم. اطلب من أي مسؤول إلغاء حظر  الحساب المساعد.",
+            "🥥︙ ليس لدي إذن حظر / إلغاء حظر المستخدم. اطلب من أي مسؤول إلغاء حظر  الحساب المساعد.",
             show_alert=True,
         )
     else:
@@ -29,11 +29,11 @@ async def unban_assistant_(_, CallbackQuery):
             )
         except:
             return await CallbackQuery.answer(
-                "🍒︙ حدث خطأ في فك الحظر",
+                "🥥︙ حدث خطأ في فك الحظر",
                 show_alert=True,
             )
         return await CallbackQuery.edit_message_text(
-            "🍒︙ تم فك حظر الحساب المساعد جرب تشغيل موسيقي الان"
+            "🥥︙ تم فك حظر الحساب المساعد جرب تشغيل موسيقي الان"
         )
 
 
@@ -71,12 +71,12 @@ def AssistantAdd(mystic):
             )
             if b.status == "kicked":
                 return await message.reply_text(
-                    f"🍒︙ الحساب المساعد[{ASS_ID}] محظور.\n🍒︙ قم بفك الحظر عنه للاستخدام البوت\n\n🍒︙المعرف @{ASS_USERNAME}",
+                    f"🥥︙ الحساب المساعد[{ASS_ID}] محظور.\n🥥︙ قم بفك الحظر عنه للاستخدام البوت\n\n🥥︙المعرف @{ASS_USERNAME}",
                     reply_markup=key,
                 )
             if b.status == "banned":
                 return await message.reply_text(
-                    f"🍒︙ الحساب المساعد[{ASS_ID}] محظور.\n🍒︙ قم بفك الحظر عنه للاستخدام البوت\n\n🍒︙المعرف @{ASS_USERNAME}",
+                    f"🥥︙ الحساب المساعد[{ASS_ID}] محظور.\n🥥︙ قم بفك الحظر عنه للاستخدام البوت\n\n🥥︙المعرف @{ASS_USERNAME}",
                     reply_markup=key,
                 )
         except UserNotParticipant:
@@ -87,7 +87,7 @@ def AssistantAdd(mystic):
                     pass
                 except Exception as e:
                     await message.reply_text(
-                        f"🍒︙فشل انضمام الحساب المساعد\n\n🍒︙**السبب** {e}"
+                        f"🥥︙فشل انضمام الحساب المساعد\n\n🥥︙**السبب** {e}"
                     )
                     return
             else:
@@ -101,13 +101,13 @@ def AssistantAdd(mystic):
                         )
                     await ASS_ACC.join_chat(invitelink)
                     await message.reply(
-                        f"🍒︙ {ASS_NAME} انضم بنجاح",
+                        f"🥥︙ {ASS_NAME} انضم بنجاح",
                     )
                 except UserAlreadyParticipant:
                     pass
                 except Exception as e:
                     await message.reply_text(
-                        f"🍒︙ فشل المساعد بالانضمام\n\n🍒︙**السبب** {e}"
+                        f"🥥︙ فشل المساعد بالانضمام\n\n🥥︙**السبب** {e}"
                     )
                     return
         return await mystic(_, message)
